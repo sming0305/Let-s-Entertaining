@@ -1,5 +1,5 @@
 .logo {
-    @include imgReplaceText('../../images/logo128px.png', 60px, 60px);
+    @include imgReplaceText('../images/logo128px.png', 60px, 60px);
 
     @include sm {
         width: 100px;
