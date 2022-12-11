@@ -10,7 +10,7 @@ if (body.classList[4] === "memberPage-showlist") {
         let deleteId = e.target.getAttribute("data-favoriteshow-id");
         if (e.target.textContent === "從收藏清單移除") {
             e.preventDefault();
-            axios.delete(`http://${api_domain}/${Guarded_routes}showFavoriteList/${deleteId}`, headers)
+            axios.delete(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList/${deleteId}`, headers)
                 .then(response => {
                     getFavoriteShowList_select()
                 }).catch(error => {

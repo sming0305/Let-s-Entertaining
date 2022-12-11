@@ -58,7 +58,7 @@ if (body.classList[4] === "login") {
             // 若驗證OK  寫入資料
         } else if (result === undefined) {
 
-            axios.post(`http://${api_domain}/login`, {
+            axios.post(`http${secure}://${api_domain}/login`, {
                 "email": loginEmail,
                 "password": loginPassword
             }).then(function (response) {

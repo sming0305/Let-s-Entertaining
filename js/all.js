@@ -21,7 +21,8 @@ const logout_btn = document.querySelectorAll(".logout-btn");
 const member_btn = document.querySelectorAll(".member-btn");
 
 
-
+// 切換secure
+let secure = "s";
 // Json-Server網址domain路徑
 let api_domain = "entertaining.vercel.app";
 // Json-server-auth 開啟部分功能需驗證Token (若不使用則填空字串);
@@ -59,7 +60,7 @@ function getShowList() {
   let day = new Date()
   let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}/${String(day.getDate()).padStart(2, '0')}`
 
-  axios.get(`http://${api_domain}/shows`)
+  axios.get(`http${secure}://${api_domain}/shows`)
     .then(function (response) {
       data = response.data;
 
@@ -188,7 +189,7 @@ function memberOrNot() {
 // 判斷活動是否已被收藏過
 function favoriteShowExist() {
 
-  axios.get(`http://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}`, headers)
+  axios.get(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}`, headers)
     .then(response => {
 
       showExist = response.data.findIndex(i => i.showId === showId)
@@ -226,7 +227,7 @@ function favoriteShowExist() {
 // 將使用者按喜歡的活動收藏至資料庫
 function addFavorite() {
 
-  axios.post(`http://${api_domain}/${Guarded_routes}showFavoriteList`,
+  axios.post(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList`,
     {
       "userId": `${localStorage.getItem("userId")}`,
       "showId": showId,

@@ -102,7 +102,7 @@ if (body.classList[4] === "register") {
           // 若驗證OK  寫入資料 
         } else if (result === undefined && readRuleCheck === true) {
 
-        axios.post(`http://${api_domain}/signup`, {
+        axios.post(`http${secure}://${api_domain}/signup`, {
             "userName": userName,
             "tel": tel,
             "email": mail,

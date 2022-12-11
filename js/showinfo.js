@@ -11,7 +11,7 @@ if (body.classList[4] === "showinfo") {
         let getId = url.split("=")
         let id = getId[1];
 
-        axios.get(`http://${api_domain}/shows?id=${id}`)
+        axios.get(`http${secure}://${api_domain}/shows?id=${id}`)
             .then(response => {
                 renderShow = response.data[0];
                 renderShowinfo()

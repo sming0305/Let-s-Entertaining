@@ -12,7 +12,7 @@ if (body.classList[4] === "memberPage") {
             e.preventDefault();
 
 
-            axios.delete(`http://${api_domain}/${Guarded_routes}showFavoriteList/${deleteId}`, headers)
+            axios.delete(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList/${deleteId}`, headers)
                 .then(response => {
                     getFavoriteShowList()
                 }).catch(error => {
@@ -32,7 +32,7 @@ function getFavoriteShowList() {
     let day = new Date()
     let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}/${String(day.getDate()).padStart(2, '0')}`
 
-    axios.get(`http://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}&_expand=show`, headers)
+    axios.get(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}&_expand=show`, headers)
         .then(response => {
             console.log(response)
 
