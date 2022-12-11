@@ -1,0 +1,869 @@
+.font-NotoSansTC {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.font-Montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font-Josefin_Sans {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.fs--1 {
+    font-size: $font-size-base*0.125;
+}
+
+.fs--2 {
+    font-size: $font-size-base*0.25;
+}
+
+.fs--3 {
+    font-size: $font-size-base*0.375;
+}
+
+.fs--4 {
+    font-size: $font-size-base*0.5;
+}
+
+.fs--5 {
+    font-size: $font-size-base*0.625;
+}
+
+.fs--6 {
+    font-size: $font-size-base*0.75;
+}
+
+.fs--7 {
+    font-size: $font-size-base*0.875;
+}
+
+.fs--8 {
+    font-size: $font-size-base;
+}
+
+.fs--9 {
+    font-size: $font-size-base*1.125;
+}
+
+.fs--10 {
+    font-size: $font-size-base*1.25;
+}
+
+.fs--11 {
+    font-size: $font-size-base*1.375;
+}
+
+.fs--12 {
+    font-size: $font-size-base*1.5;
+}
+
+.fs--13 {
+    font-size: $font-size-base*1.625;
+}
+
+.fs--14 {
+    font-size: $font-size-base*1.75;
+}
+
+.fs--15 {
+    font-size: $font-size-base*1.875;
+}
+
+.fs--16 {
+    font-size: $font-size-base*2;
+}
+
+.fs--17 {
+    font-size: $font-size-base*2.125;
+}
+
+.fs--18 {
+    font-size: $font-size-base*2.25;
+}
+
+.fs--19 {
+    font-size: $font-size-base*2.375;
+}
+
+.fs--20 {
+    font-size: $font-size-base*2.5;
+}
+
+.fs--21 {
+    font-size: $font-size-base*2.625;
+}
+
+.fs--22 {
+    font-size: $font-size-base*2.75;
+}
+
+.fs--23 {
+    font-size: $font-size-base*2.875;
+}
+
+.fs--24 {
+    font-size: $font-size-base*3;
+}
+
+.fs--25 {
+    font-size: $font-size-base*3.125;
+}
+
+.fs--26 {
+    font-size: $font-size-base*3.25;
+}
+
+.fs--27 {
+    font-size: $font-size-base*3.375;
+}
+
+.fs--28 {
+    font-size: $font-size-base*3.5;
+}
+
+.fs--29 {
+    font-size: $font-size-base*3.625;
+}
+
+.fs--30 {
+    font-size: $font-size-base*3.75;
+}
+
+.fs--31 {
+    font-size: $font-size-base*3.875;
+}
+
+.fs--32 {
+    font-size: $font-size-base*4;
+}
+
+.fs--33 {
+    font-size: $font-size-base*4.125;
+}
+
+.fs--34 {
+    font-size: $font-size-base*4.25;
+}
+
+.fs--35 {
+    font-size: $font-size-base*4.375;
+}
+
+.fs--36 {
+    font-size: $font-size-base*4.5;
+}
+
+.fs--37 {
+    font-size: $font-size-base*4.625;
+}
+
+.fs--38 {
+    font-size: $font-size-base*4.75;
+}
+
+.fs--39 {
+    font-size: $font-size-base*4.875;
+}
+
+.fs--40 {
+    font-size: $font-size-base*5;
+}
+
+.fs--41 {
+    font-size: $font-size-base*5.125;
+}
+
+.fs--42 {
+    font-size: $font-size-base*5.25;
+}
+
+
+
+@include sm {
+    .fs-sm-1 {
+        font-size: $font-size-base*0.125;
+    }
+
+    .fs-sm-2 {
+        font-size: $font-size-base*0.25;
+    }
+
+    .fs-sm-3 {
+        font-size: $font-size-base*0.375;
+    }
+
+    .fs-sm-4 {
+        font-size: $font-size-base*0.5;
+    }
+
+    .fs-sm-5 {
+        font-size: $font-size-base*0.625;
+    }
+
+    .fs-sm-6 {
+        font-size: $font-size-base*0.75;
+    }
+
+    .fs-sm-7 {
+        font-size: $font-size-base*0.875;
+    }
+
+    .fs-sm-8 {
+        font-size: $font-size-base;
+    }
+
+    .fs-sm-9 {
+        font-size: $font-size-base*1.125;
+    }
+
+    .fs-sm-10 {
+        font-size: $font-size-base*1.25;
+    }
+
+    .fs-sm-11 {
+        font-size: $font-size-base*1.375;
+    }
+
+    .fs-sm-12 {
+        font-size: $font-size-base*1.5;
+    }
+
+    .fs-sm-13 {
+        font-size: $font-size-base*1.625;
+    }
+
+    .fs-sm-14 {
+        font-size: $font-size-base*1.75;
+    }
+
+    .fs-sm-15 {
+        font-size: $font-size-base*1.875;
+    }
+
+    .fs-sm-16 {
+        font-size: $font-size-base*2;
+    }
+
+    .fs-sm-17 {
+        font-size: $font-size-base*2.125;
+    }
+
+    .fs-sm-18 {
+        font-size: $font-size-base*2.25;
+    }
+
+    .fs-sm-19 {
+        font-size: $font-size-base*2.375;
+    }
+
+    .fs-sm-20 {
+        font-size: $font-size-base*2.5;
+    }
+
+    .fs-sm-21 {
+        font-size: $font-size-base*2.625;
+    }
+
+    .fs-sm-22 {
+        font-size: $font-size-base*2.75;
+    }
+
+    .fs-sm-23 {
+        font-size: $font-size-base*2.875;
+    }
+
+    .fs-sm-24 {
+        font-size: $font-size-base*3;
+    }
+
+    .fs-sm-25 {
+        font-size: $font-size-base*3.125;
+    }
+
+    .fs-sm-26 {
+        font-size: $font-size-base*3.25;
+    }
+
+    .fs-sm-27 {
+        font-size: $font-size-base*3.375;
+    }
+
+    .fs-sm-28 {
+        font-size: $font-size-base*3.5;
+    }
+
+    .fs-sm-29 {
+        font-size: $font-size-base*3.625;
+    }
+
+    .fs-sm-30 {
+        font-size: $font-size-base*3.75;
+    }
+
+    .fs-sm-31 {
+        font-size: $font-size-base*3.875;
+    }
+
+    .fs-sm-32 {
+        font-size: $font-size-base*4;
+    }
+
+    .fs-sm-33 {
+        font-size: $font-size-base*4.125;
+    }
+
+    .fs-sm-34 {
+        font-size: $font-size-base*4.25;
+    }
+
+    .fs-sm-35 {
+        font-size: $font-size-base*4.375;
+    }
+
+    .fs-sm-36 {
+        font-size: $font-size-base*4.5;
+    }
+
+    .fs-sm-37 {
+        font-size: $font-size-base*4.625;
+    }
+
+    .fs-sm-38 {
+        font-size: $font-size-base*4.75;
+    }
+
+    .fs-sm-39 {
+        font-size: $font-size-base*4.875;
+    }
+
+    .fs-sm-40 {
+        font-size: $font-size-base*5;
+    }
+
+    .fs-sm-41 {
+        font-size: $font-size-base*5.125;
+    }
+
+    .fs-sm-42 {
+        font-size: $font-size-base*5.25;
+    }
+}
+
+
+
+@include lg {
+    .fs-lg-1 {
+        font-size: $font-size-base*0.125;
+    }
+
+    .fs-lg-2 {
+        font-size: $font-size-base*0.25;
+    }
+
+    .fs-lg-3 {
+        font-size: $font-size-base*0.375;
+    }
+
+    .fs-lg-4 {
+        font-size: $font-size-base*0.5;
+    }
+
+    .fs-lg-5 {
+        font-size: $font-size-base*0.625;
+    }
+
+    .fs-lg-6 {
+        font-size: $font-size-base*0.75;
+    }
+
+    .fs-lg-7 {
+        font-size: $font-size-base*0.875;
+    }
+
+    .fs-lg-8 {
+        font-size: $font-size-base;
+    }
+
+    .fs-lg-9 {
+        font-size: $font-size-base*1.125;
+    }
+
+    .fs-lg-10 {
+        font-size: $font-size-base*1.25;
+    }
+
+    .fs-lg-11 {
+        font-size: $font-size-base*1.375;
+    }
+
+    .fs-lg-12 {
+        font-size: $font-size-base*1.5;
+    }
+
+    .fs-lg-13 {
+        font-size: $font-size-base*1.625;
+    }
+
+    .fs-lg-14 {
+        font-size: $font-size-base*1.75;
+    }
+
+    .fs-lg-15 {
+        font-size: $font-size-base*1.875;
+    }
+
+    .fs-lg-16 {
+        font-size: $font-size-base*2;
+    }
+
+    .fs-lg-17 {
+        font-size: $font-size-base*2.125;
+    }
+
+    .fs-lg-18 {
+        font-size: $font-size-base*2.25;
+    }
+
+    .fs-lg-19 {
+        font-size: $font-size-base*2.375;
+    }
+
+    .fs-lg-20 {
+        font-size: $font-size-base*2.5;
+    }
+
+    .fs-lg-21 {
+        font-size: $font-size-base*2.625;
+    }
+
+    .fs-lg-22 {
+        font-size: $font-size-base*2.75;
+    }
+
+    .fs-lg-23 {
+        font-size: $font-size-base*2.875;
+    }
+
+    .fs-lg-24 {
+        font-size: $font-size-base*3;
+    }
+
+    .fs-lg-25 {
+        font-size: $font-size-base*3.125;
+    }
+
+    .fs-lg-26 {
+        font-size: $font-size-base*3.25;
+    }
+
+    .fs-lg-27 {
+        font-size: $font-size-base*3.375;
+    }
+
+    .fs-lg-28 {
+        font-size: $font-size-base*3.5;
+    }
+
+    .fs-lg-29 {
+        font-size: $font-size-base*3.625;
+    }
+
+    .fs-lg-30 {
+        font-size: $font-size-base*3.75;
+    }
+
+    .fs-lg-31 {
+        font-size: $font-size-base*3.875;
+    }
+
+    .fs-lg-32 {
+        font-size: $font-size-base*4;
+    }
+
+    .fs-lg-33 {
+        font-size: $font-size-base*4.125;
+    }
+
+    .fs-lg-34 {
+        font-size: $font-size-base*4.25;
+    }
+
+    .fs-lg-35 {
+        font-size: $font-size-base*4.375;
+    }
+
+    .fs-lg-36 {
+        font-size: $font-size-base*4.5;
+    }
+
+    .fs-lg-37 {
+        font-size: $font-size-base*4.625;
+    }
+
+    .fs-lg-38 {
+        font-size: $font-size-base*4.75;
+    }
+
+    .fs-lg-39 {
+        font-size: $font-size-base*4.875;
+    }
+
+    .fs-lg-40 {
+        font-size: $font-size-base*5;
+    }
+
+    .fs-lg-41 {
+        font-size: $font-size-base*5.125;
+    }
+
+    .fs-lg-42 {
+        font-size: $font-size-base*5.25;
+    }
+}
+
+
+
+
+
+.lh-14_18 {
+    line-height: 1.285;
+}
+
+.lh-14_32 {
+    line-height: 2.285;
+}
+
+.lh-16_17 {
+    line-height: 1.062;
+}
+
+.lh-16_32 {
+    line-height: 2;
+}
+
+.lh-18_19 {
+    line-height: 1.055;
+}
+
+.lh-18_26 {
+    line-height: 1.444;
+}
+
+.lh-20_26 {
+    line-height: 1.3;
+}
+
+.lh-20_29 {
+    line-height: 1.45;
+}
+
+.lh-20_32 {
+    line-height: 1.6;
+}
+
+.lh-24_32 {
+    line-height: 1.333;
+}
+
+.lh-24_35 {
+    line-height: 1.458;
+}
+
+.lh-32_34 {
+    line-height: 1.062;
+}
+
+.lh-32_45 {
+    line-height: 1.40;
+}
+
+.lh-48_50 {
+    line-height: 1.041;
+}
+
+.lh-48_70 {
+    line-height: 1.458;
+}
+
+.lh-80_85 {
+    line-height: 1.041;
+}
+
+.writing-mode-vertical-lr {
+    writing-mode: vertical-lr;
+}
+
+.text-width-size-31 {
+    width: 30px;
+}
+
+
+.m--z1 {
+    margin: -1px;
+}
+
+.m--z10 {
+    margin: -10px;
+}
+
+.m--z80 {
+    margin: -80px;
+}
+
+.mt--z1 {
+    margin-top: -1px !important;
+}
+
+.mb--z1 {
+    margin-bottom: -1px !important;
+}
+
+.me--z1 {
+    margin-right: -1px !important;
+}
+
+.ms--z1 {
+    margin-left: -1px !important;
+}
+
+
+
+@include lg {
+
+    .mt-lg-z12 {
+        margin-top: -12px !important;
+    }
+
+    .mb-lg-z12 {
+        margin-bottom: -12px !important;
+    }
+
+    .me-lg-z12 {
+        margin-right: -12px !important;
+    }
+
+    .ms-lg-z12 {
+        margin-left: -12px !important;
+    }
+
+}
+
+
+.object-fit-contain {
+    object-fit: contain;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+
+.border-none {
+    border: none !important;
+}
+
+.outline-none {
+    outline: none;
+}
+
+.outline-primary-1 {
+    outline: 1px solid $primary;
+}
+
+.outline-secondary-1 {
+    outline: 1px solid #E6553B;
+}
+
+
+.btn-active {
+    color: #E6553B;
+}
+
+
+
+.opacity_100 {
+    opacity: 1 !important;
+}
+
+.opacity_90 {
+    opacity: 0.9;
+}
+
+.opacity_85 {
+    opacity: 0.85 !important;
+}
+
+.opacity_70 {
+    opacity: 0.7 !important;
+}
+
+.opacity_50 {
+    opacity: 0.5;
+}
+
+.opacity_0 {
+    opacity: 0;
+}
+
+.background-color-rgba-opacity-60 {
+    background-color: rgba(#ffffff, 0.6) !important;
+}
+
+.background-color-rgba-opacity-80 {
+    background-color: rgba(#ffffff, 0.8) !important;
+}
+
+.background-color-rgba-opacity-90 {
+    background-color: rgba(#ffffff, 0.95) !important;
+}
+
+.backdrop-blur-5 {
+    backdrop-filter: blur(5px);
+}
+
+
+.m0-auto {
+    margin: 0 auto;
+}
+
+.height-min {
+    height: min-content;
+}
+
+.h-40 {
+    height: 40px !important;
+}
+
+.h-lg-100 {
+    @include lg {
+        height: 100% !important;
+    }
+}
+
+.vh-88 {
+    height: 88vh !important;
+}
+
+.vh-lg-40 {
+    @include lg {
+        height: 25vh !important;
+    }
+}
+
+
+.w-10_6 {
+    width: 10.6%;
+}
+
+
+.w-16_6 {
+    width: 16.6%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+
+.w-33 {
+    width: 33.333%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-md-50 {
+    @include md {
+        width: 50% !important;
+    }
+}
+
+.w-lg-65 {
+    @include lg {
+        width: 65% !important;
+    }
+}
+
+.w-sm-85 {
+    @include sm {
+        width: 85% !important;
+    }
+}
+
+
+
+.top_50 {
+    top: 50px;
+}
+
+.top_72 {
+    top: 72px;
+}
+
+.top_160 {
+    top: 160px;
+}
+
+.top-sm-120 {
+    @include sm {
+        top: 120px;
+    }
+}
+
+
+.b-z110 {
+    bottom: -110px;
+}
+
+.b-z140 {
+    bottom: -140px;
+}
+
+.d-xs-block {
+    @include xs {
+        display: block !important;
+    }
+}
+
+.d-xs-none {
+    @include xs {
+        display: none !important;
+    }
+}
+
+.d-xs-flex {
+    @include xs {
+        display: flex;
+    }
+}
+
+.z-9 {
+    z-index: 9;
+}
+
+.z-18 {
+    z-index: 18;
+}
+
+.z-1060 {
+    z-index: 1060 !important;
+}
+
+.position-md-absolute {
+    @include md {
+        position: absolute !important;
+    }
+}
+
+.position-md-initial {
+    @include md {
+        position: initial !important;
+    }
+}
+
+.active-white:active {
+    color: #ffffff !important;
+}

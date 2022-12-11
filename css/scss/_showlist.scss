@@ -1,0 +1,9 @@
+.img--size1 {
+    width: 200px;
+    height: 100px;
+    @include lg{
+        max-width: 177px;
+        width: auto;
+        height: 100px;
+    }
+}

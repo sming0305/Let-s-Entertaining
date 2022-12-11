@@ -1,0 +1,24 @@
+.swal2-popup{
+    background-color: rgba(#ffffff, 0.95) !important;
+}
+
+.swal2-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px !important;
+    margin-bottom: 12px !important;
+    padding-top: 30px !important;
+}
+
+.swal2-styled{
+    padding: 0 !important;
+    margin: 0 16px 0 0 !important;
+    background: transparent !important;
+    &.swal2-confirm:focus{
+        box-shadow: none !important;
+    }
+}
+
+.swal2-shown {
+    overflow: unset !important;
+    padding-right: 0px !important;
+}

@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body,html{
+    line-height: 1.5;
+    height: 100%;
+}
+
+body{
+    padding-top: 76px !important;
+
+    @include sm {
+        padding-top: 124px !important;
+    }
+    overflow-x: hidden; //for AOS 套件短暫出現的 X 軸
+}
+
+ul{
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+a {
+    text-decoration: none;
+}
+
+// Fix  button color blue default 
+button {
+    color: #000 ;
+    background-color: transparent ;
+}
+
+select{
+    color: #000 ;
+}
+
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }

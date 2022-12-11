@@ -1,0 +1,47 @@
+.offcanvas {
+    top: 76px !important;
+
+    @include sm {
+        top: 124px !important;
+    }
+}
+
+.titel--decorate {
+    position: relative;
+
+    &::after,
+    &::before {
+        content: "";
+        top: 60%;
+        position: absolute;
+        width: calc(30% - 74px);
+        height: 2px;
+        background-color: #000;
+    }
+
+    &::after {
+        left: 15%;
+    }
+
+    &::before {
+        right: 15%;
+    }
+}
+
+.introduce,
+.mask__1.hover,
+.mask__2.hover,
+.mask__3.hover,
+.mask__4.hover{
+
+    &:hover{
+        cursor: pointer;
+        transition: all 0.7s;
+        opacity: 0.9 !important;
+    }
+}
+
+.img__size2{
+    object-position: 20% 50%;
+}
+

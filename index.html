@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Let's Entertaining! 藝起趣!</title>
+
+
+    <meta name="keywords" content="展演活動，華山文創，松菸文創">
+    <meta name="description" content="Let's Entertaining! 一起輕鬆去看展">
+
+    <meta name="og:description" content="Let's Entertaining! 一起輕鬆去看展">
+    <meta name="og:title" content="Let's Entertaining! 藝起趣!">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="#">
+    <meta name="og:url" content="#">
+
+    <link rel="shortcut icon" href="./images/painting.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body class="d-flex flex-column justify-content-between h-100 index">
+    <header class="z-1060 bg-white fixed-top border-bottom border-black border-2 ">
+        <div class="container z-1060">
+            <nav class="d-flex align-items-center justify-content-between py-2 py-sm-3 pe-lg-0 z-1060">
+                <h1 class="d-flex align-items-center"><a href="index.html" class="logo">Let's Entertaining!藝起趣</a><a
+                        href="index.html" class="fs-lg-19 fs-sm-16 fs--10 font-Josefin_Sans fw-bold">Let's<br
+                            class="d-block d-xl-none"> Entertaining!</a></h1>
+                <ul class="nav flex-shrink-0 d-none d-lg-flex">
+                    <li class="nav-item">
+                        <a class="nav-link font-Montserrat" href="showlist.html">展演列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-Montserrat" href="./showassistant.html">看展小幫手</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-Montserrat" href="#">-News-</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-Montserrat" href="#">園區介紹</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-Montserrat member-btn" href="./login.html">會員專區</a>
+                    </li>
+                    <li>
+                        <a class="nav-link font-Montserrat d-none logout-btn" href="#">登出</a>
+                    </li>
+                </ul>
+                <div class="mobile__Menu  me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+                    aria-controls="offcanvasTop">
+                    <span class="mobile__Menu--line"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow-1">
+        <section class="banner py-5  py-lg-12">
+            <div class="container h-100">
+                <div class="d-flex flex-column justify-content-between h-100">
+                    <div class="row">
+                        <div class="col offset-1 pt-10">
+                            <div>
+                                <h2 class="fs--20 font-Montserrat mb-10" data-aos="fade-right" data-aos-duration="3000">
+                                    一起去看展吧!
+                                </h2>
+                                <div class="fs--11 fs-sm-12 ms-5">
+                                    <p data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1500">挑一場喜歡的活動</p>
+                                    <p data-aos="fade-down" data-aos-duration="3000" data-aos-delay="3000">現在就出發 <span
+                                            class="flashing--bottomline fs--11 fs-sm-16">_</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <span class="material-symbols-outlined fs--25 mb-2 me-lg-3 double--arrowdown">
+                            keyboard_double_arrow_down
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="fullPageLayout__1 py-10  py-lg-15">
+            <h2 class="mb-8 mb-lg-12 fw-bold text-center text-white px-3" data-aos="fade-up" data-aos-duration="1200"
+                data-aos-once="true">你想看的展演，都在 Entertaining-藝起趣</h2>
+            <div class="container" data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
+                <ul class="row indexShowList">
+
+                </ul>
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <span class="material-symbols-outlined fs--20 fs-sm-25 mb-6 text-white fw-bold"
+                            data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50" data-aos-once="true">
+                            keyboard_double_arrow_down
+                        </span>
+                        <a href="./showlist.html" class="text-white fw-bold fs--10 button__type--line2 px-6 py-4"
+                            data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50"
+                            data-aos-once="true">點我看更多展覽內容</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-10 py-lg-20" style="overflow-x: hidden;">
+            <div class="container">
+                <h2 class="fw-bold text-center fs-sm-20 fs--8 fst-italic font-Montserrat lazy-loaded">#用簡單的方式，讓生活充滿回憶 _
+                </h2>
+            </div>
+        </section>
+        <section class="py-20 fullPageLayout__3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="vh-lg-40 d-flex align-items-center justify-content-center fs--10">
+                            <p class="font-Montserrat mb-6" data-aos="zoom-in" data-aos-duration="2500"
+                                data-aos-delay="200">看展擔心<br><br class="d-none d-lg-block">&emsp;&emsp;<span
+                                    class="fs--12 d-none d-lg-inline-block">天氣不好?</span>
+                                <span class="fs--10 d-inline-block d-lg-none">天氣不好，記錯展覽時段!?</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="vh-lg-40 align-items-center justify-content-center fs--8 d-none d-lg-flex">
+                            <p class="font-Montserrat text-center mt-6" data-aos="fade-down" data-aos-duration="2000"
+                                data-aos-delay="800">好不容易出門了才發現...<br><br><span class="fs--14">竟然記錯展覽時段!!?</span></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="vh-lg-40 d-flex align-items-center justify-content-center fs--8 mb-12"
+                            data-aos="fade-right" data-aos-duration="2300" data-aos-delay="2200">
+                            <p class="fs--10 fs-lg-14 text-center font-Montserrat">試試看展小幫手<br><span
+                                    class="d-none d-lg-block">快速提供您<br>觀展當天所需資訊</span></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="vh-lg-40 d-flex align-items-center justify-content-center fs--20 fs-sm-25"
+                            data-aos="fade-up" data-aos-duration="3000" data-aos-delay="3000"><span
+                                class="material-symbols-outlined fs--20 fs-sm-25">
+                                keyboard_double_arrow_right
+                            </span><a href="#" class="font-Josefin_Sans">Click me!!</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-10 pt-lg-20 pb-lg-5">
+            <div class="container">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="https://images.unsplash.com/photo-1596120236172-231999844ade?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                        alt="picnic" style="height: 111px;" class="rounded-3 me-15 d-none d-md-block">
+                    <h2 class="fs--11 fs-md-14 me-4 me-sm-15"><span>加入會員</span> <br>收藏喜歡的展演活動，替生活點綴繽紛!</h2><a
+                        href="./login.html" class="fw-bold btn btn-outline-dark">Joing US!</a>
+                </div>
+            </div>
+        </section>
+        <section class="py-10 py-lg-20">
+            <div class="container">
+                <h2 class="text-center fs--20 fs-sm-25 titel--decorate mb-15">News</h2>
+                <ul class="row row-cols-1 row-cols-md-2 row-cols-xxl-3 g-4 g-sm-8 mb-10">
+                    <li class="col">
+                        <div class="card h-100 border-none button__type--bottomline">
+                            <a href="#">
+                                <img src="https://www.songshanculturalpark.org/gallery/1642340506_06624755b933eac8ec37.jpg"
+                                    class="card-img-top" alt="松菸鳥語" style="height: 224px;">
+                            </a>
+                            <a href="#" class="card-body">
+                                <h5 class="card-title">松菸生態導覽</h5>
+                                <p class="card-text textLineOverflow--4">松山文創園區有著多樣化的植物與動物們群聚於此，就讓我們一起來暸解這些可愛的動植物們吧！</p>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col">
+                        <div class="card h-100 border-none button__type--bottomline">
+                            <a href="#">
+                                <img src="https://www.songshanculturalpark.org/gallery/1642580286_f1f96e6de4a4880cce6d.jpg"
+                                    class="card-img-top" alt="松菸鳥語" style="height: 224px;">
+                            </a>
+                            <a href="#" class="card-body">
+                                <h5 class="card-title">從松菸的鳥語淺看生態</h5>
+                                <p class="card-text textLineOverflow--4">
+                                    台北市松山文創園區，充滿文創、藝術、文學的台北文化窗口，在台北市中心舊松山菸廠的建築群中轉化出清新的氣息，除此之外，這裡也與周邊國父紀念館以及前身為「台北鐵道工廠」......
+                                </p>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col">
+                        <div class="card h-100 border-none button__type--bottomline">
+                            <a href="#">
+                                <img src="https://www.travel.taipei/image/325925/?r=1664504108629" class="card-img-top"
+                                    alt="華山" style="height: 224px;">
+                            </a>
+                            <a href="#" class="card-body">
+                                <h5 class="card-title">華山的建物與故事</h5>
+                                <p class="card-text textLineOverflow--4">
+                                    建於1920年11月，最早是做為釀造米酒的空間，整區樓高起伏錯落有致，搭配局部木桁架及斜屋頂，呈現不同時代的工法及建材特性。</p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex justify-content-center ">
+                    <a href="" class="px-10 py-3 button__type--line1">閱讀更多內容</a>
+                </div>
+            </div>
+        </section>
+        <section class="section--mask" style="overflow-x: hidden;">
+            <div class="d-flex flex-wrap vh-100 position-relative">
+                <div class="h-100 w-50 position-absolute d-md-flex opacity_90 start-0 bg-white z-18 mask__1 d-none">
+                    <div class="d-flex align-items-center justify-content-center  w-100 font-Montserrat">
+                        <div class="w-50 mask__4 opacity_0">
+                            <h2 class="mb-6 fs--26">華山文創園區</h2>
+                            <p class="mb-4">前身為「台北酒廠」，為臺北市市定古蹟
+                            </p>
+                            <p class="mb-4">經多年閒置，在1999年起成為提供給藝文界、非營利組織及個人使用的藝術展覽、音樂表演等文化活動場地</p>
+                            <p class="mb-4">，成為臺北市中心重要的藝文展演場所。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-100 w-50 position-absolute d-md-flex opacity_90 end-0  bg-white z-18 mask__2 d-none">
+                    <div class="d-flex align-items-center justify-content-center  w-100 font-Montserrat">
+                        <div class="w-50 mask__3 opacity_0">
+                            <h2 class="mb-6 fs--26">松山文創園區</h2>
+                            <p class="mb-4">前身為「台灣省菸酒公賣局松山菸廠」，
+                                專門製造捲菸、雪茄等菸草製品。
+                            </p>
+                            <p class="mb-4">松山菸廠在1998年停止生產、併入台北菸廠後正式走入歷史，並於2001年被列為市定古蹟。</p>
+                            <p class="mb-4">其中有著各式個樣的室內外空間，分別有著不同的用途。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-relative position-md-initial">
+                    <img src="https://i.imgur.com/ZzqXKSZ.jpg" alt=""
+                        class="h-100 w-100 w-md-50 position-md-absolute d-flex end-0 img__size2">
+                    <div
+                        class="d-flex align-items-center justify-content-center  w-100 font-Montserrat bg-white opacity_0 position-absolute top-0 h-100 introduce d-md-none">
+                        <div class="p-6">
+                            <h2 class="mb-6 fs--14">華山文創園區</h2>
+                            <p class="mb-4 fs--7">前身為「台北酒廠」，為臺北市市定古蹟
+                            </p>
+                            <p class="mb-4 fs--7">經多年閒置，在1999年起成為提供給藝文界、非營利組織及個人使用的藝術展覽、音樂表演等文化活動場地</p>
+                            <p class="mb-4 fs--7">，成為臺北市中心重要的藝文展演場所。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-relative position-md-initial">
+                    <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res60/470000/470926-Songshan-Cultural-And-Creative-Park.jpg"
+                        alt="" class="h-100 w-100 w-md-50 position-md-absolute d-flex start-0">
+                    <div
+                        class="d-flex align-items-center justify-content-center  w-100 font-Montserrat bg-white opacity_0 position-absolute top-0 h-100 introduce d-md-none">
+                        <div class="p-6">
+                            <h2 class="mb-6 fs--14">松山文創園區</h2>
+                            <p class="mb-4 fs--7">前身為「台灣省菸酒公賣局松山菸廠」，
+                                專門製造捲菸、雪茄等菸草製品。
+                            </p>
+                            <p class="mb-4 fs--7">松山菸廠在1998年停止生產、併入台北菸廠後正式走入歷史，並於2001年被列為市定古蹟。</p>
+                            <p class="mb-4 fs--7">其中有著各式個樣的室內外空間，分別有著不同的用途。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-5 border-top border-2 border-black">
+        <p class="text-center font-Josefin_Sans font-Montserrat">2022 Entertaining-藝起趣</p>
+    </footer>
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"
+        data-bs-scroll="false">
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link border-bottom fs--8 font-Montserrat" href="showlist.html">展演列表</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-bottom fs--8 font-Montserrat" href="./showassistant.html">看展小幫手</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-bottom fs--8 font-Montserrat" href="#">-News-</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-bottom fs--8 font-Montserrat" href="#">園區介紹</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-bottom fs--8 font-Montserrat member-btn" href="./login.html">會員專區</a>
+                </li>
+                <li>
+                    <a class="nav-link font-Montserrat d-none logout-btn" href="#">登出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/axios.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+    <script src="./js/all.js"></script>
+    <script src="./js/showlist.js"></script>
+    <script src="./js/showinfo.js"></script>
+    <script src="./js/register.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/member.js"></script>
+    <script src="./js/memberPage.js"></script>
+    <script src="./js/memberPage-showlist.js"></script>
+</body>
+
+</html>
