@@ -20038,7 +20038,7 @@ progress {
 }
 
 .logo {
-  background-image: url("../images/logo128px.png");
+  background-image: url("../../images/logo128px.png");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
