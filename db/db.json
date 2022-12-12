@@ -233,38 +233,52 @@
       "userName": "WU",
       "tel": "0977777666",
       "id": 6
+    },
+    {
+      "email": "YI123123@gmail.com",
+      "password": "$2a$10$BU0ynMNufi96VCMdoSEOceq6S6.wuH4p9Lhbt6Khz5OPtMWDxIPvi",
+      "userName": "YI",
+      "tel": "0966666666",
+      "id": 7
+    },
+    {
+      "email": "PP009699@gmail.com",
+      "password": "$2a$10$y8fFMyh99qSGo.BThFqp8.qs3qNtiKcJ1qvmMP9PE9mu7sFvKPyZG",
+      "userName": "YI",
+      "tel": "0966666666",
+      "id": 8
     }
   ],
   "showFavoriteList": [
     {
+      "userId": "7",
+      "showId": "2",
+      "id": 13
+    },
+    {
+      "userId": "7",
+      "showId": "4",
+      "id": 14
+    },
+    {
       "userId": "2",
       "showId": "8",
-      "id": 4
-    },
-    {
-      "userId": "2",
-      "showId": "6",
-      "id": 5
-    },
-    {
-      "userId": "2",
-      "showId": "7",
-      "id": 8
+      "id": 18
     },
     {
       "userId": "2",
       "showId": "1",
-      "id": 9
+      "id": 19
     },
     {
       "userId": "2",
       "showId": "5",
-      "id": 10
+      "id": 20
     },
     {
       "userId": "2",
       "showId": "3",
-      "id": 11
+      "id": 21
     }
   ]
 }

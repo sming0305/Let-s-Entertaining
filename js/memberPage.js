@@ -28,10 +28,6 @@ if (body.classList[4] === "memberPage") {
 // 取得最愛展演清單 & 按日期正確排序 & 計算出剩餘天數  & 最終僅顯示第一筆提醒會員
 function getFavoriteShowList() {
 
-    // 取得今天日期，並確保格式一致
-    let day = new Date()
-    let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}/${String(day.getDate()).padStart(2, '0')}`
-
     axios.get(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}&_expand=show`, headers)
         .then(response => {
             console.log(response)
@@ -73,12 +69,15 @@ function getFavoriteShowList() {
                 let str = `<div class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></div>`;
                 member_notice.innerHTML = str;
             }else{
+                console.log(error)
+                console.log(error.response.data)
                 alert("登入資訊環節異常，請檢查console");
                 overtime()
             }
 
         })
 }
+
 // 渲染會員首頁的展演提醒
 function renderMemberIndex() {
 

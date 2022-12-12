@@ -20,11 +20,12 @@ const member_showList = document.querySelector(".member_showList");
 const logout_btn = document.querySelectorAll(".logout-btn");
 const member_btn = document.querySelectorAll(".member-btn");
 
+console.log("PUSH前記得更改secure & domain路徑")
 
 // 切換secure
-let secure = "s";
+let secure = "";
 // Json-Server網址domain路徑
-let api_domain = "entertaining.vercel.app";
+let api_domain = "localhost:3000"; // entertaining.vercel.app
 // Json-server-auth 開啟部分功能需驗證Token (若不使用則填空字串);
 let Guarded_routes = "600/"
 // 使用者headers Token 暫存處
@@ -41,10 +42,11 @@ let showId = ``;
 let showExist = ``;
 // tokenOverTime 資訊暫存
 let tokenOverTime = ``;
+// 取得今天日期，並使格式與資料庫展演日期格式一致
+let day = new Date()
+let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}/${String(day.getDate()).padStart(2, '0')}`
 // 展演結束日期gap暫存處;
 let gap = ``;
-
-
 
 // 初始化
 Init();
@@ -52,13 +54,8 @@ Init();
 
 let data = [];
 
-
 // 取得所有展覽演出活動資訊
 function getShowList() {
-
-  // 取得今天日期，並確保格式一致
-  let day = new Date()
-  let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}/${String(day.getDate()).padStart(2, '0')}`
 
   axios.get(`http${secure}://${api_domain}/shows`)
     .then(function (response) {
@@ -143,7 +140,7 @@ function renderShowList(dataBase) {
                                   <p class="card-text d-none d-lg-block"><small>${i.startTime} - ${i.endTime}</small> <small>${i.locationName}</small></p>
                               </div>
                               <div class="d-flex justify-content-end flex-shrink-0">
-                                  <a href="./showinfo.html?id=${i.id}" class="btn btn-sm fs-7 fs-sm-8 d-none d-xs-block me-2 btn-outline-dark">詳細介紹</a>
+                                  <a href="./showinfo.html?id=${i.id}" class="btn btn-sm fs-7 fs-sm-8 d-none d-xs-block me-2 btn-outline-dark" target="_new">詳細介紹</a>
                                   <a href="#" class="btn btn-sm fs-7 fs-sm-8 btn-outline-dark" data-show-id="${i.id}">加入收藏清單</a>
                               </div>
                           </div>
@@ -254,7 +251,6 @@ function addFavorite() {
       }
     })
 }
-
 
 // 登入 & 登出 狀態檢查復位  &  導覽列狀態切換檢查
 function userLoginInfo() {
@@ -444,13 +440,13 @@ if (body.classList[4] === "index") {
   // 首頁 .lazy-loaded的scale 動畫效果
   const scale = gsap.timeline({
     scrollTrigger: {
-      trigger: ".lazy-loaded", // 決定scrolltrigger要以哪一個元素作為觸發基準點
-      start: 'top 90%', // 決定動畫開始點的位置
-      end: 'top 10%', // 決定動畫結束點的位置
+      trigger: ".lazy-loaded-box", // 決定scrolltrigger要以哪一個元素作為觸發基準點
+      start: 'top 47%', // 決定動畫開始點的位置
+      end: 'top 0%', // 決定動畫結束點的位置
       scrub: true, //開啟scrub決定動畫播放是否依賴視窗滾動
     },
   })
-  scale.to(".lazy-loaded", { scale: 1.2, duration: 10 })
+  scale.to(".lazy-loaded", { scale: 1.3, duration: 10 })
 
   // 首頁最下方園區簡介 動畫效果
   const mask = gsap.timeline({

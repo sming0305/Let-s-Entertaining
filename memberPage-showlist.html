@@ -103,41 +103,37 @@
                     </div>
                 </div>
             </section>
-            <section>
-                <div class="container">
-                    <div class="border-bottom border-black border-3 mb-6">
-                        <h2 class="fs--11 fs-sm-18 pb-4 ps-4">我的展演收藏匣</h2>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="d-flex justify-content-start mb-5 col-12 col-xl-12">
-                                <div class="me-6">
-                                    <label for="member-location" class="me-4 mb-1 mb-sm-0">園區選擇 :</label>
-                                    <select name="member-location" id="member-location"
-                                        class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat member-location">
-                                        <option value="我的收藏" selected>我的收藏</option>
-                                        <option value="全部園區">全部園區</option>
-                                        <option value="華山文創">華山文創</option>
-                                        <option value="松山文創">松山文創</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="member-date" class="me-4 mb-1 mb-sm-0">展期月份 :</label>
-                                    <select name="member-date" id="member-date"
-                                        class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat member-date">
-                                        <option value="全部活動" selected>全部活動</option>
-                                        <option value="2023-01">2023-01</option>
-                                        <option value="2023-02">2023-02</option>
-                                        <option value="2023-03">2023-03</option>
-                                        <option value="2023-04">2023-04</option>
-                                        <option value="2023-05">2023-05</option>
-                                        <option value="2023-06">2023-06</option>
-                                    </select>
+            <section class="flex-grow-1 ">
+                <div class="container h-100">
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="border-bottom border-black border-3 mb-6">
+                            <h2 class="fs--11 fs-sm-18 pb-4 ps-4">我的展演收藏匣</h2>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="row">
+                                <div class="d-flex justify-content-start mb-5 col-12 col-xl-12">
+                                    <div class="me-6">
+                                        <label for="member-location" class="me-4 mb-1 mb-sm-0">園區選擇 :</label>
+                                        <select name="member-location" id="member-location"
+                                            class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat member-location">
+                                            <option value="我的收藏" selected>我的收藏</option>
+                                            <option value="全部園區">全部園區</option>
+                                            <option value="華山文創">華山文創</option>
+                                            <option value="松山文創">松山文創</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="member-date" class="me-4 mb-1 mb-sm-0">展期月份 :</label>
+                                        <select name="member-date" id="member-date"
+                                            class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat member-date">
+                                            <option value="全部活動" selected>全部活動</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
+                            <ul class="row member_showList flex-grow-1 h-100 flex-column justify-content-start">
+                            </ul>
                         </div>
-                        <ul class="row member_showList">
-                        </ul>
                     </div>
                 </div>
             </section>
@@ -167,7 +163,10 @@
                     <a class="nav-link border-bottom fs--8 font-Montserrat" href="#">園區介紹</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link border-bottom fs--8 font-Montserrat" href="./login.html">會員專區</a>
+                    <a class="nav-link border-bottom fs--8 font-Montserrat member-btn" href="./login.html">會員專區</a>
+                </li>
+                <li>
+                    <a class="nav-link font-Montserrat d-none logout-btn" href="#">登出</a>
                 </li>
             </ul>
         </div>

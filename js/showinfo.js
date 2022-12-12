@@ -1,5 +1,5 @@
 if (body.classList[4] === "showinfo") {
-    
+
 
     let renderShow = {};
 
@@ -45,7 +45,7 @@ if (body.classList[4] === "showinfo") {
                   <p class="fs--7 fs-sm-8">${renderShow.price}</p>
                   </li>
                   <li class="d-flex justify-content-center d-lg-block pb-2 pb-lg-0">
-                  <button type="button" class="btn btn-outline-dark">加入收藏清單</button>
+                  <button type="button" class="btn btn-outline-dark" data-show-id="${renderShow.id}">加入收藏清單</button>
                   </li>`;
 
         let introduceStr = `<div class="mb-12">
@@ -68,5 +68,20 @@ if (body.classList[4] === "showinfo") {
     function showInfoInit() {
         getShowinfo()
     }
+
+    // 加入收藏清單按鈕功能
+    showInfoPage_info.addEventListener("click", e => {
+
+        if (e.target.textContent === "加入收藏清單") {
+            e.preventDefault();
+
+            // 取得showId
+            showId = e.target.getAttribute("data-show-id");
+
+            console.log(showId)
+
+            memberOrNot()
+        }
+    })
 
 }
