@@ -25,7 +25,7 @@ console.log("PUSH前記得更改secure & domain路徑")
 // 切換secure
 let secure = "s";
 // Json-Server網址domain路徑
-let api_domain = "entertaining.vercel.app"; // entertaining.vercel.app   // localhost:3000
+let api_domain = "let-s-entertaining.onrender.com"; // let-s-entertaining.onrender.com // entertaining.vercel.app   // localhost:3000
 // Json-server-auth 開啟部分功能需驗證Token (若不使用則填空字串);
 let Guarded_routes = "600/"
 // 使用者headers Token 暫存處

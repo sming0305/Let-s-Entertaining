@@ -31,9 +31,6 @@ function getFavoriteShowList() {
     axios.get(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}&_expand=show`, headers)
         .then(response => {
 
-            console.log(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}&_expand=show`)
-            console.log(headers)
-
             // 排除日期已過期的活動
             data = response.data.filter(i => i.show.endDate >= today)
 
