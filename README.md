@@ -13,7 +13,7 @@
 - 會員註冊功能POST (JSON-server-auth signup)
 - 會員登入功能POST (JSON-server-auth login)
 - 展演活動加入收藏清單POST & DELETE (JSON-server-auth /600/ 需Token) 
-  <p>備註:DELETE功能因db.json部屬在vercel上，刪除後若重新整理仍會存在。</p>
+  <p>會員頁測試時隨機會出現403錯誤，確認中(本地端測試無問題)</p>
 - 會員專區首頁API串接渲染，活動倒數天數提示 (JSON-server-auth /600/ 需Token)
 - 會員專區列出收藏活動清單--API串接渲染 (JSON-server-auth /600/ 需Token)
 - 展演收藏閘篩選功能
