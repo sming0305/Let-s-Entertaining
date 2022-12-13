@@ -70,7 +70,7 @@
     </header>
 
     <main class="flex-grow-1">
-        <section class="py-10 py-lg-15 fullPageLayout__4">
+        <section class="py-10 py-lg-15 fullPageLayout__4" style="min-height: 100vh;">
             <h2 class="titel--decorate--black text-center fs--18 mb-10 mb-lg-15">展演列表</h2>
             <div class="container">
                 <div class="row">
@@ -78,8 +78,7 @@
                         <div class="me-6">
                             <label for="member-location" class="me-4 mb-1 mb-sm-0">園區選擇 :</label>
                             <select name="member-location" id="member-location"
-                                class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat member-location">
-                                <option value="我的收藏" selected>我的收藏</option>
+                                class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat showList-location">
                                 <option value="全部園區">全部園區</option>
                                 <option value="華山文創">華山文創</option>
                                 <option value="松山文創">松山文創</option>
@@ -88,7 +87,7 @@
                         <div>
                             <label for="member-date" class="me-4 mb-1 mb-sm-0">展期月份 :</label>
                             <select name="member-date" id="member-date"
-                                class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat member-date">
+                                class="pe-4 pe-sm-13 ps-1 py-1 font-Montserrat showList-date">
                                 <option value="全部活動" selected>全部活動</option>
                             </select>
                         </div>
@@ -153,6 +152,7 @@
     <script src="./js/member.js"></script>
     <script src="./js/memberPage.js"></script>
     <script src="./js/memberPage-showlist.js"></script>
+    <script src="./js/reviseinfo.js"></script>
 </body>
 
 </html>

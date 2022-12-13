@@ -2,10 +2,12 @@ if (body.classList[4] === "memberPage-showlist") {
 
 
     //首次切換到此頁，取得展演收藏匣完整清單 並 渲染 
-    getFavoriteShowList_select()
+    getFavoriteShowList_select(member_location, member_date)
 
     //  若使用者點擊刪除收藏展演 or 加入收藏清單，進行相應處理，之後重新刷清單
     member_showList.addEventListener("click", e => {
+
+        e.preventDefault();
 
         // 取得使用者點擊的最愛展覽ID
         let deleteId = e.target.getAttribute("data-favoriteshow-id");
@@ -15,7 +17,7 @@ if (body.classList[4] === "memberPage-showlist") {
             e.preventDefault();
             axios.delete(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList/${deleteId}`, headers)
                 .then(response => {
-                    getFavoriteShowList_select()
+                    getFavoriteShowList_select(member_location, member_date)
                 }).catch(error => {
                     console.log(error)
                     tokenOverTime = error.response.request.statusText === "Unauthorized"
@@ -49,10 +51,10 @@ if (body.classList[4] === "memberPage-showlist") {
 
         if (target === "我的收藏") {
             // 如是選擇我的收藏，將請求最愛清單並渲染程序
-            getFavoriteShowList_select()
+            getFavoriteShowList_select(member_location, member_date)
         } else {
             // 如果是非收藏清單，將執行非收藏清單的請求程序
-            getMemberShowList()
+            getMemberShowList(member_location, member_date,member_showList)
         }
     })
 
@@ -62,19 +64,18 @@ if (body.classList[4] === "memberPage-showlist") {
 
         // 如果是在我的收藏的狀態下，用渲染收藏清單的程序
         if (member_location.value === "我的收藏") {
-            getFavoriteShowList_select()
+            getFavoriteShowList_select(member_location, member_date)
         } else {
 
             // 其他狀況都用非收藏清單的程序
-            getMemberShowList()
+            getMemberShowList(member_location, member_date,member_showList)
         }
     })
-
 }
 
 
 // 取得展演收藏匣完整清單
-function getFavoriteShowList_select() {
+function getFavoriteShowList_select(select_location, select_date) {
 
     // get 該會員的專屬收藏清單
     axios.get(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}&_expand=show`, headers)
@@ -95,9 +96,9 @@ function getFavoriteShowList_select() {
             })
 
             //  如果選擇不分月份的全部活動
-            if (member_date.value === "全部活動") {
+            if (select_date.value === "全部活動") {
                 // 將收藏清單的所有活動月份innerHTML塞入
-                selectDate()
+                selectDate(select_location, select_date)
                 // 然後渲染會員收藏清單
                 renderMemberFavoriteShowList()
             }
@@ -188,7 +189,8 @@ function renderMemberFavoriteShowList() {
 }
 
 // 取得全部園區 & 分區  供select使用的展演列表清單
-function getMemberShowList() {
+function getMemberShowList(select_location, select_date,list) {
+
 
     axios.get(`http${secure}://${api_domain}/shows`)
         .then(response => {
@@ -196,7 +198,7 @@ function getMemberShowList() {
             // 確保活動未過期
             data = response.data.filter(i => i.endDate >= today)
 
-            // 依照活動結束時間由近至遠排序
+            // 依照活動結束時間由近至遠排序der
             data.sort((a, b) => {
                 if (a.endDate > b.endDate) {
                     return 1;
@@ -209,12 +211,13 @@ function getMemberShowList() {
 
 
             //如果兩個select都處於"全部"狀態 
-            if (member_location.value === "全部園區") {
-                if (member_date.value === "全部活動") {
+            if (select_location.value === "全部園區") {
+                if (select_date.value === "全部活動") {
                     // 抓出所有活動月份innerHTML進select
-                    selectDate()
+                    selectDate(select_location, select_date)
                     // 負責渲染非會員收藏清單列表的功能
-                    renderMemberShowList()
+                    renderMemberShowList(list)
+
                 } else {
 
                     //copy一個整理好日期排序的data
@@ -222,20 +225,19 @@ function getMemberShowList() {
 
                     // 用data跑filter 篩選出會員選擇想看到指定月份的資料
                     data = copy.filter(i => {
-
                         // 邏輯是 > 先拆分data內每個活動的日期格式成為 ex: 2022-12，再跟使用者點選的月份對比
                         // 1.如果該活動的 結束時間 大於 會員所選擇的日期 ，代表活動仍在進行 可以保留
                         // 2.如果該活動的 開始時間 小於 會員所選擇的日期 ，代表活動已經開始 可以保留
-                        if (`${i.endDate.split("/")[0]}-${i.endDate.split("/")[1]}` >= member_date.value &&
-                            `${i.startDate.split("/")[0]}-${i.startDate.split("/")[1]}` <= member_date.value) {
+                        if (`${i.endDate.split("/")[0]}-${i.endDate.split("/")[1]}` >= select_date.value &&
+                            `${i.startDate.split("/")[0]}-${i.startDate.split("/")[1]}` <= select_date.value) {
                             return i
                         }
                     })
 
                     //渲染篩選過的陣列資料
-                    renderMemberShowList()
+                    renderMemberShowList(list)
                 }
-            } else if (member_location.value === "華山文創") {
+            } else if (select_location.value === "華山文創") {
 
                 // 只篩出 "華山1914文化創意產業園區" 且日期未過期的活動
                 data = response.data.filter(i => i.locationName === "華山1914文化創意產業園區" && i.endDate >= today)
@@ -253,24 +255,24 @@ function getMemberShowList() {
 
 
                 // 如果會員選擇全部時段活動，進行全時段渲染
-                if (member_date.value === "全部活動") {
-                    renderMemberShowList()
+                if (select_date.value === "全部活動") {
+                    renderMemberShowList(list)
                 } else {
 
                     // 篩選出會員指定月份
                     let copy = data
                     data = copy.filter(i => {
 
-                        if (`${i.endDate.split("/")[0]}-${i.endDate.split("/")[1]}` >= member_date.value &&
-                            `${i.startDate.split("/")[0]}-${i.startDate.split("/")[1]}` <= member_date.value) {
+                        if (`${i.endDate.split("/")[0]}-${i.endDate.split("/")[1]}` >= select_date.value &&
+                            `${i.startDate.split("/")[0]}-${i.startDate.split("/")[1]}` <= select_date.value) {
                             return i
                         }
                     })
-                    renderMemberShowList()
+                    renderMemberShowList(list)
                 }
 
 
-            } else if (member_location.value === "松山文創") {
+            } else if (select_location.value === "松山文創") {
 
                 // 只篩出 "松山文創園區" 且日期未過期的活動
                 data = response.data.filter(i => i.locationName === "松山文創園區" && i.endDate >= today)
@@ -289,20 +291,20 @@ function getMemberShowList() {
 
 
                 // 如果會員選擇全部時段活動，進行全時段渲染
-                if (member_date.value === "全部活動") {
-                    renderMemberShowList()
+                if (select_date.value === "全部活動") {
+                    renderMemberShowList(list)
                 } else {
 
                     // 篩選出會員指定月份
                     let copy = data
                     data = copy.filter(i => {
 
-                        if (`${i.endDate.split("/")[0]}-${i.endDate.split("/")[1]}` >= member_date.value &&
-                            `${i.startDate.split("/")[0]}-${i.startDate.split("/")[1]}` <= member_date.value) {
+                        if (`${i.endDate.split("/")[0]}-${i.endDate.split("/")[1]}` >= select_date.value &&
+                            `${i.startDate.split("/")[0]}-${i.startDate.split("/")[1]}` <= select_date.value) {
                             return i
                         }
                     })
-                    renderMemberShowList()
+                    renderMemberShowList(list)
                 }
             }
         }).catch(error => {
@@ -325,13 +327,13 @@ function getMemberShowList() {
 }
 
 // 渲染全部園區 & 分區  供select使用的展演列表清單
-function renderMemberShowList() {
+function renderMemberShowList(list) {
 
     let str = ``;
 
     if (data[0] === undefined) {
         str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">該月份無相關展演活動</p></li>`;
-        member_showList.innerHTML = str;
+        list.innerHTML = str;
     } else {
         data.forEach(i => {
 
@@ -370,11 +372,11 @@ function renderMemberShowList() {
         })
     }
 
-    member_showList.innerHTML = str;
+    list.innerHTML = str;
 }
 
 // 按照select選取不同條件的活動，取得對應的活動月份功能用於innerHTML
-function selectDate() {
+function selectDate(location, date) {
 
     let str = `<option value="全部活動" selected>全部活動</option>`;
     let HTMLdate = ``;
@@ -386,11 +388,15 @@ function selectDate() {
         let date = ``;
 
 
-        if (member_location.value === "我的收藏") {
-            //如果會員選擇"我的收藏"時，data的endDate 路徑
-            date = i.show.endDate;
-        } else {
-            //如果會員選擇非收藏的展覽時，data的endDate 路徑
+        if (body.classList[4] === "memberPage-showassistant") {
+            if (location.value === "我的收藏") {
+                //如果會員選擇"我的收藏"時，data的endDate 路徑
+                date = i.show.endDate;
+            } else {
+                //如果會員選擇非收藏的展覽時，data的endDate 路徑
+                date = i.endDate
+            }
+        } else if (body.classList[4] === "showlist") {
             date = i.endDate
         }
 
@@ -407,6 +413,6 @@ function selectDate() {
 
 
     // 組完後innerHTML
-    member_date.innerHTML = str;
+    date.innerHTML = str;
 }
 

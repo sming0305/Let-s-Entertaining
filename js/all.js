@@ -11,6 +11,8 @@ const mask_4 = document.querySelector(".mask__4");
 
 const indexShowList = document.querySelector(".indexShowList");
 const fullShowList = document.querySelector(".fullShowList");
+const showList_location = document.querySelector(".showList-location");
+const showList_date = document.querySelector(".showList-date");
 const showInfoPage_info = document.querySelector(".showinfo_info");
 const showInfoPage_introduce = document.querySelector(".showintroduce");
 const member_notice = document.querySelector(".member_notice");
@@ -20,12 +22,15 @@ const member_showList = document.querySelector(".member_showList");
 const logout_btn = document.querySelectorAll(".logout-btn");
 const member_btn = document.querySelectorAll(".member-btn");
 
+
+
+
 console.log("PUSH前記得更改secure & domain路徑")
 
 // 切換secure
-let secure = "s";
+let secure = "";
 // Json-Server網址domain路徑
-let api_domain = "let-s-entertaining.onrender.com"; // let-s-entertaining.onrender.com // entertaining.vercel.app   // localhost:3000
+let api_domain = "localhost:3000"; // let-s-entertaining.onrender.com // localhost:3000
 // Json-server-auth 開啟部分功能需驗證Token (若不使用則填空字串);
 let Guarded_routes = "600/"
 // 使用者headers Token 暫存處
@@ -38,7 +43,7 @@ let headers = {
 
 // 判斷使用者當前點擊到欲收藏的活動Id---儲存位置
 let showId = ``;
-// 判斷使用者當前點擊到欲收藏的活動是否已收藏代號---儲存位置
+// 判斷使用者當前點擊到欲收藏的活動是否已收藏---儲存位置
 let showExist = ``;
 // tokenOverTime 資訊暫存
 let tokenOverTime = ``;
@@ -51,36 +56,44 @@ let gap = ``;
 // 初始化
 Init();
 
-
 let data = [];
+
+
+
 
 // 取得所有展覽演出活動資訊
 function getShowList() {
 
-  axios.get(`http${secure}://${api_domain}/shows`)
-    .then(function (response) {
-      data = response.data;
+  if (body.classList[4] === "index" || body.classList[4] === "showlist") {
+    axios.get(`http${secure}://${api_domain}/shows`)
+      .then(function (response) {
+        data = response.data;
 
-      // 排除日期已過期的活動
-      data = response.data.filter(i => i.endDate >= today)
+        // 排除日期已過期的活動
+        data = response.data.filter(i => i.endDate >= today)
 
-      // 依照活動結束時間由近至遠排序
-      data.sort(function (a, b) {
-        if (a.endDate > b.endDate) {
-          return 1;
-        } else if (a.endDate < b.endDate) {
-          return -1;
-        } else {
-          return 0;
+        // 依照活動結束時間由近至遠排序
+        data.sort(function (a, b) {
+          if (a.endDate > b.endDate) {
+            return 1;
+          } else if (a.endDate < b.endDate) {
+            return -1;
+          } else {
+            return 0;
+          }
+        })
+
+        if (body.classList[4] === "showlist") {
+          selectDate(showList_location, showList_date)
         }
-      })
 
-      // 渲染展演列表
-      renderShowList()
-    }).catch(function (error) {
-      console.log(error);
-      alert("全部展演清單API資訊串接出現錯誤，請檢查console")
-    })
+        // 渲染展演列表
+        renderShowList()
+      }).catch(function (error) {
+        console.log(error);
+        alert("全部展演清單API資訊串接出現錯誤，請檢查console")
+      })
+  }
 }
 
 // 渲染展演列表功能 (首頁-展演列表 & 全部展演頁-列表)
@@ -129,13 +142,13 @@ function renderShowList(dataBase) {
               <div class="card  border-bottom border-black bg-transparent" style="min-height: 80px;">
                   <div class="row g-0">
                       <div class="col-4 col-lg-3 col-xxl-2">
-                          <a href="./showinfo.html?id=${i.id}"><img src="${i.imgUrl}"
+                          <a href="./showinfo.html?id=${i.id}" target="_new"><img src="${i.imgUrl}"
                               class="img-fluid img--size1" alt="展演"></a>
                       </div>
                       <div class="col-8 col-lg-9 col-xxl-10">
                           <div class="card-body p-1 p-sm-2 d-flex flex-column flex-lg-row align-items-lg-center justify-content-between h-100">
                               <div>
-                                  <a href="./showinfo.html?id=${i.id}"><h5 class="fs--7 fs-sm-8 fs-lg-12 textLineOverflow">${i.title}</h5></a>
+                                  <a href="./showinfo.html?id=${i.id}" target="_new"><h5 class="fs--7 fs-sm-8 fs-lg-12 textLineOverflow">${i.title}</h5></a>
                                   <p class="card-text fs--6 fs-sm-8">${i.startDate} – ${i.endDate}</p>
                                   <p class="card-text d-none d-lg-block"><small>${i.startTime} - ${i.endTime}</small> <small>${i.locationName}</small></p>
                               </div>
@@ -153,6 +166,7 @@ function renderShowList(dataBase) {
   }
 
 }
+
 
 // 收藏活動前，判斷使用者是否已加入會員 & 收藏活動
 function memberOrNot() {
@@ -230,7 +244,6 @@ function addFavorite() {
       "showId": showId,
     }, headers)
     .then(response => {
-      console.log(response)
       Swal.fire({
         title: '收藏成功~，可至會員中心展演閘查看',
         scrollbarPadding: false,
@@ -429,7 +442,6 @@ if (body.classList[4] === "index") {
 
     }
   })
-
 
   //首頁不顯示nav下方border線
   header.classList.remove("border-bottom")

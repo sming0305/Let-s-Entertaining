@@ -107,6 +107,7 @@ if (body.classList[4] === "register") {
             "tel": tel,
             "email": mail,
             "password": password,
+            "checkPASD": password
         }).then(function (response) {
 
             console.log(response)

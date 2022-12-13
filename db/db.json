@@ -193,92 +193,42 @@
   ],
   "users": [
     {
-      "id": 1,
-      "email": "PP00969@gmail.com",
-      "password": "$2a$10$FDZ0XL34mrmwNt4im4ixguXZFfJlLFcRM4jqTpR6wMmZKTPU0h0oK",
-      "userName": "肥宅心碎賞櫻3日",
-      "tel": "0999999999"
-    },
-    {
       "email": "Jack666@gmail.com",
-      "password": "$2a$10$TZ4TRAgyh7nWdTCzvAsiQOtNJ8Cc7evZc4FwlY3o70F7f/uwPCmXy",
+      "password": "$2a$10$F5an7/XiXn80OuS2U8uSqOETTSMYD4CKu4.zq/EP1S4COUPqL7Roi",
+      "checkPASD": "12345666",
       "userName": "Jack",
-      "tel": "0966666666",
-      "id": 2
-    },
-    {
-      "email": "ACC1235@gmail.com",
-      "password": "$2a$10$2roHjHTk6GEdRiKSNLSeOuT7TkjKYgNwozejiOMz9wufAEs9A2M/S",
-      "userName": "小明",
-      "tel": "0988888888",
-      "id": 3
-    },
-    {
-      "email": "HAZ1197@gmail.com",
-      "password": "$2a$10$/BOMETq5yxhd3f4bNmVdveEwwaSS9GYv//0ul1XBLM.MvwbeUz6eS",
-      "userName": "花花",
       "tel": "0977777777",
-      "id": 4
+      "id": 1
     },
     {
-      "email": "Jack777@gmail.com",
-      "password": "$2a$10$o2jUb.9I8ZhcdbSaeu8c0OxEN6Z2hkXZy8kAamPGfkRLfP3ai.fKG",
-      "userName": "Jack",
-      "tel": "0966666666",
-      "id": 5
-    },
-    {
-      "email": "WU11235@gmail.com",
-      "password": "$2a$10$fNwVfDPcRrfQpetQxlx7m.sg1LU4OVeP/Xq7HSQZDTf36zAxOwcWW",
-      "userName": "WU",
-      "tel": "0977777666",
-      "id": 6
-    },
-    {
-      "email": "YI123123@gmail.com",
-      "password": "$2a$10$BU0ynMNufi96VCMdoSEOceq6S6.wuH4p9Lhbt6Khz5OPtMWDxIPvi",
+      "email": "YI666@gmail.com",
+      "password": "$2a$10$wAAytO41ZUXsImSJF6kPrOx856sGqHCDFSYvuQDyqHWOu2CWw265G",
       "userName": "YI",
       "tel": "0966666666",
-      "id": 7
-    },
-    {
-      "email": "PP009699@gmail.com",
-      "password": "$2a$10$y8fFMyh99qSGo.BThFqp8.qs3qNtiKcJ1qvmMP9PE9mu7sFvKPyZG",
-      "userName": "YI",
-      "tel": "0966666666",
-      "id": 8
+      "checkPASD": "12345666",
+      "id": 2
     }
   ],
   "showFavoriteList": [
     {
-      "userId": "7",
-      "showId": "2",
-      "id": 13
-    },
-    {
-      "userId": "7",
-      "showId": "4",
-      "id": 14
-    },
-    {
-      "userId": "2",
+      "userId": "1",
       "showId": "8",
       "id": 18
     },
     {
-      "userId": "2",
-      "showId": "1",
-      "id": 19
-    },
-    {
-      "userId": "2",
-      "showId": "5",
-      "id": 20
-    },
-    {
-      "userId": "2",
+      "userId": "1",
       "showId": "3",
       "id": 21
+    },
+    {
+      "userId": "1",
+      "showId": "1",
+      "id": 22
+    },
+    {
+      "userId": "1",
+      "showId": "5",
+      "id": 23
     }
   ]
 }

@@ -115,43 +115,55 @@
                             <div class="col-12">
                                 <label for="changeName" class="form-label mb-0  fs--7 fs-sm-9 fw-bold">
                                     * 變更使用者姓名 </label>
-                                <input type="text" class="form-control noframe-input mb-8 mb-sm-10 py-1 px-3"
-                                    id="changeName">
+                                <input type="text" class="form-control noframe-input mb-2 py-1 px-3 changeName"
+                                    id="changeName" name="變更名稱">
+                                <label for="" class="text-danger fs--7 mb-2 validate_constraint" style="min-height:16px"
+                                    data-message="變更名稱"></label>
                             </div>
                             <div class="col-12">
                                 <label for="changeTel" class="form-label mb-0  fs--7 fs-sm-9 fw-bold">
                                     * 變更您的手機號碼 </label>
-                                <input type="tel" class="form-control noframe-input mb-8 mb-sm-10 py-1 px-3"
-                                    id="changeTel">
+                                <input type="tel" class="form-control noframe-input mb-2 py-1 px-3 changeTel"
+                                    id="changeTel" name="變更號碼">
+                                <label for="" class="text-danger fs--7 mb-2 validate_constraint" style="min-height:16px"
+                                    data-message="變更號碼"></label>
                             </div>
                             <div class="col-12">
                                 <label for="changeEmai" class="form-label mb-0  fs--7 fs-sm-9 fw-bold">
                                     * 變更電子信箱 </label>
-                                <input type="email" class="form-control noframe-input mb-8 mb-sm-10 py-1 px-3"
-                                    id="changeEmai">
+                                <input type="email" class="form-control noframe-input mb-2 py-1 px-3 changeEmai"
+                                    id="changeEmai" name="變更mail">
+                                <label for="" class="text-danger fs--7 mb-2 validate_constraint" style="min-height:16px"
+                                    data-message="變更mail"></label>
                             </div>
                             <div class="col-12">
                                 <label for="oldPassword" class="form-label mb-0 fs--7 fs-sm-9 fw-bold">
                                     * 請輸入舊使用者密碼 </label>
-                                <input type="password" class="form-control noframe-input mb-8 mb-sm-10 py-1 px-3"
-                                    id="oldPassword">
+                                <input type="password" class="form-control noframe-input mb-2 py-1 px-3 oldPassword"
+                                    id="oldPassword" name="舊密碼">
+                                <label for="" class="text-danger fs--7 mb-2 validate_constraint" style="min-height:16px"
+                                    data-message="舊密碼"></label>
                             </div>
                             <div class="col-12">
                                 <label for="checkPassword" class="form-label mb-0 fs--7 fs-sm-9 fw-bold">
                                     * 請輸入新使用者密碼 </label>
-                                <input type="password" class="form-control noframe-input mb-8 py-1 px-3"
-                                    id="checkPassword">
+                                <input type="password" class="form-control noframe-input mb-2 py-1 px-3 newPassword"
+                                    id="newPassword" name="新密碼">
+                                <label for="" class="text-danger fs--7 mb-2 validate_constraint" style="min-height:16px"
+                                    data-message="新密碼"></label>
                             </div>
                             <div class="col-12">
                                 <label for="newPassword" class="form-label mb-0 fs--7 fs-sm-9 fw-bold">
                                     * 再次輸入新密碼 </label>
-                                <input type="password" class="form-control noframe-input mb-8 py-1 px-3"
-                                    id="newPassword">
+                                <input type="password" class="form-control noframe-input mb-2 py-1 px-3 checkPassword"
+                                    id="checkPassword" name="再次輸入的密碼">
+                                <label for="" class="text-danger fs--7 mb-2 validate_constraint" style="min-height:16px"
+                                    data-message="再次輸入的密碼"></label>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-outline-dark btn-sm me-1 me-sm-4"
-                                    style="min-width: 114px;">取消變更</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm"
+                                <a href="#" class="btn btn-outline-dark btn-sm me-1 me-sm-4 cancelBtn"
+                                    style="min-width: 114px;">取消變更</a>
+                                <button type="button" class="btn btn-outline-dark btn-sm reviseinfoBtn"
                                     style="min-width: 114px;">變更</button>
                             </div>
                         </form>
@@ -211,6 +223,7 @@
     <script src="./js/member.js"></script>
     <script src="./js/memberPage.js"></script>
     <script src="./js/memberPage-showlist.js"></script>
+    <script src="./js/reviseinfo.js"></script>
 </body>
 
 </html>
