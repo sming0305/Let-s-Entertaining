@@ -73,6 +73,8 @@ function getFavoriteShowList() {
             }else{
                 console.log(error)
                 console.log(error.response.data)
+                console.log(`http${secure}://${api_domain}/${Guarded_routes}showFavoriteList?userId=${localStorage.getItem("userId")}&_expand=show`)
+                console.log(headers)
                 alert("vercel資料異常403，將為您登出，請稍後再試");
                 overtime()
             }
