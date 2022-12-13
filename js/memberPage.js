@@ -74,7 +74,7 @@ function getFavoriteShowList() {
                 console.log(error)
                 console.log(error.response.data)
                 alert("vercel資料異常403，將為您登出，請稍後再試");
-                // overtime()
+                overtime()
             }
 
         })
