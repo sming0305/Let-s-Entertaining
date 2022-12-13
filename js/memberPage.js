@@ -32,6 +32,8 @@ function getFavoriteShowList() {
         .then(response => {
             console.log(response)
 
+            console.log(localStorage.getItem("userId"))
+
             // 排除日期已過期的活動
             data = response.data.filter(i => i.show.endDate >= today)
 
@@ -71,8 +73,8 @@ function getFavoriteShowList() {
             }else{
                 console.log(error)
                 console.log(error.response.data)
-                alert("登入資訊環節異常，請檢查console");
-                overtime()
+                alert("vercel資料異常403，將為您登出，請稍後再試");
+                // overtime()
             }
 
         })

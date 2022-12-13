@@ -19,7 +19,19 @@ if (body.classList[4] === "memberPage-showlist") {
                 }).catch(error => {
                     console.log(error)
                     tokenOverTime = error.response.request.statusText === "Unauthorized"
-                    overtime()
+                    if (tokenOverTime === "Unauthorized") {
+                        // token過期，將使用者登出並提醒
+                        overtime()
+                    } else if (tokenOverTime === "Forbidden") {
+                        // 收藏清單被刪除至0筆時會跳出"Forbidden"
+                        let str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></li>`;
+                        member_showList.innerHTML = str;
+                    }
+                    else {
+                        // 登入資料異常，將使用者登出並提醒
+                        alert("vercel資料異常403，將為您登出，請稍後再試")
+                        overtime()
+                    }
                 })
         }// 點擊添加
         else if (e.target.textContent === "加入收藏清單") {
@@ -125,7 +137,7 @@ function getFavoriteShowList_select() {
             }
             else {
                 // 登入資料異常，將使用者登出並提醒
-                alert("登入資訊環節異常，請檢查console");
+                alert("vercel資料異常403，將為您登出，請稍後再試")
                 overtime()
             }
         })
@@ -306,7 +318,7 @@ function getMemberShowList() {
             }
             else {
                 // 登入資料異常，將使用者登出並提醒
-                alert("登入資訊環節異常，請檢查console");
+                alert("vercel資料異常403，將為您登出，請稍後再試")
                 overtime()
             }
         })
@@ -316,9 +328,6 @@ function getMemberShowList() {
 function renderMemberShowList() {
 
     let str = ``;
-
-    console.log(data[0])
-    console.log(data[0] === undefined)
 
     if (data[0] === undefined) {
         str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">該月份無相關展演活動</p></li>`;
