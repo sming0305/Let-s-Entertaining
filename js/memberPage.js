@@ -52,7 +52,7 @@ function getFavoriteShowList() {
             // 即將結束 - 今天日期 = 取得差距毫秒
             let gapTime = listOneShowEndDate.getTime() - current.getTime();
             // 毫秒轉換為天數
-            let gapDay = (((gapTime/1000)/60)/60)/24;
+            let gapDay = (((gapTime / 1000) / 60) / 60) / 24;
 
             // 取得展演剩餘天數
             gap = gapDay;
@@ -64,10 +64,16 @@ function getFavoriteShowList() {
             tokenOverTime = error.response.request.statusText;
             if (tokenOverTime === "Unauthorized") {
                 overtime()
-            }else if(tokenOverTime === "Forbidden"){
+            } // 當使用 localhost 或 vercel 刪除至0筆時會挑出Forbidden 403錯誤，將之導引至此
+            else if (tokenOverTime === "Forbidden") {
                 let str = `<div class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></div>`;
                 member_notice.innerHTML = str;
-            }else{
+            } // 當使用 render 刪除至0筆時會挑出status 403錯誤，將之導引至此
+            else if (error.response.request.status === 403) {
+                let str = `<div class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></div>`;
+                member_notice.innerHTML = str;
+            }
+            else {
                 console.log(error)
                 console.log(error.response.data)
                 alert("vercel資料異常403，將為您登出，請稍後再試");
@@ -80,7 +86,7 @@ function getFavoriteShowList() {
 // 渲染會員首頁的展演提醒
 function renderMemberIndex() {
 
-    let str =`<p class="fs--9 fs-sm-13 ps-4 mb-6">提醒您 : 您收藏的展演活動“${data[0].show.title}”
+    let str = `<p class="fs--9 fs-sm-13 ps-4 mb-6">提醒您 : 您收藏的展演活動“${data[0].show.title}”
                      <br />展期倒數 <span class="text-danger fw-bold">${gap}</span> 天，記得在展期結束前前往參加。</p>
                  <div class="d-lg-flex justify-content-between">
                      <img src="${data[0].show.imgUrl}"
@@ -112,7 +118,7 @@ function renderMemberIndex() {
                          </li>
                      </ul>
                  </div>`;
-    
+
     member_notice.innerHTML = str;
 }
 

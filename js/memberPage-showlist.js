@@ -7,7 +7,7 @@ if (body.classList[4] === "memberPage-showlist") {
     //  若使用者點擊刪除收藏展演 or 加入收藏清單，進行相應處理，之後重新刷清單
     member_showList.addEventListener("click", e => {
 
-        e.preventDefault();
+        
 
         // 取得使用者點擊的最愛展覽ID
         let deleteId = e.target.getAttribute("data-favoriteshow-id");
@@ -25,8 +25,12 @@ if (body.classList[4] === "memberPage-showlist") {
                         // token過期，將使用者登出並提醒
                         overtime()
                     } else if (tokenOverTime === "Forbidden") {
-                        // 收藏清單被刪除至0筆時會跳出"Forbidden"
+                        // 當使用 localhost 或 vercel 刪除至0筆時會挑出Forbidden 403錯誤，將之導引至此
                         let str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></li>`;
+                        member_showList.innerHTML = str;
+                    }// 當使用 render 刪除至0筆時會挑出status 403錯誤，將之導引至此
+                    else if (error.response.request.status === 403) {
+                        let str = `<div class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></div>`;
                         member_showList.innerHTML = str;
                     }
                     else {
@@ -37,6 +41,7 @@ if (body.classList[4] === "memberPage-showlist") {
                 })
         }// 點擊添加
         else if (e.target.textContent === "加入收藏清單") {
+            e.preventDefault();
             // 取得使用者點擊想加入的展覽ID
             showId = e.target.getAttribute("data-show-id");
             // 執行加入收藏的程序
@@ -54,7 +59,7 @@ if (body.classList[4] === "memberPage-showlist") {
             getFavoriteShowList_select(member_location, member_date)
         } else {
             // 如果是非收藏清單，將執行非收藏清單的請求程序
-            getMemberShowList(member_location, member_date,member_showList)
+            getMemberShowList(member_location, member_date, member_showList)
         }
     })
 
@@ -68,7 +73,7 @@ if (body.classList[4] === "memberPage-showlist") {
         } else {
 
             // 其他狀況都用非收藏清單的程序
-            getMemberShowList(member_location, member_date,member_showList)
+            getMemberShowList(member_location, member_date, member_showList)
         }
     })
 }
@@ -132,8 +137,13 @@ function getFavoriteShowList_select(select_location, select_date) {
                 // token過期，將使用者登出並提醒
                 overtime()
             } else if (tokenOverTime === "Forbidden") {
-                // 收藏清單被刪除至0筆時會跳出"Forbidden"
+                // 當使用 localhost 或 vercel 刪除至0筆時會挑出Forbidden 403錯誤，將之導引至此
                 let str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></li>`;
+                member_showList.innerHTML = str;
+            }
+            // 當使用 render 刪除至0筆時會挑出status 403錯誤，將之導引至此
+            else if (error.response.request.status === 403) {
+                let str = `<div class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></div>`;
                 member_showList.innerHTML = str;
             }
             else {
@@ -189,7 +199,7 @@ function renderMemberFavoriteShowList() {
 }
 
 // 取得全部園區 & 分區  供select使用的展演列表清單
-function getMemberShowList(select_location, select_date,list) {
+function getMemberShowList(select_location, select_date, list) {
 
 
     axios.get(`http${secure}://${api_domain}/shows`)
@@ -314,8 +324,13 @@ function getMemberShowList(select_location, select_date,list) {
                 // token過期，將使用者登出並提醒
                 overtime()
             } else if (tokenOverTime === "Forbidden") {
-                // 收藏清單被刪除至0筆時會跳出"Forbidden"
+                console.log(tokenOverTime)
+                // 當使用 localhost 或 vercel 刪除至0筆時會挑出Forbidden 403錯誤，將之導引至此
                 let str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></li>`;
+                member_showList.innerHTML = str;
+            }// 當使用 render 刪除至0筆時會挑出status 403錯誤，將之導引至此
+            else if (error.response.request.status === 403) {
+                let str = `<div class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">目前沒有收藏的活動，快去看看有沒有喜歡的展演吧~</p></div>`;
                 member_showList.innerHTML = str;
             }
             else {
@@ -332,7 +347,7 @@ function renderMemberShowList(list) {
     let str = ``;
 
     if (data[0] === undefined) {
-        str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14">該月份無相關展演活動</p></li>`;
+        str = `<li class="d-flex align-items-center justify-content-center h-100"><p class="fs--14 py-20">該月份無相關展演活動</p></li>`;
         list.innerHTML = str;
     } else {
         data.forEach(i => {
@@ -388,7 +403,9 @@ function selectDate(location, date) {
         let date = ``;
 
 
-        if (body.classList[4] === "memberPage-showassistant") {
+
+
+        if (body.classList[4] === "memberPage-showlist") {
             if (location.value === "我的收藏") {
                 //如果會員選擇"我的收藏"時，data的endDate 路徑
                 date = i.show.endDate;

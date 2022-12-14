@@ -1,6 +1,6 @@
-
 if (body.classList[4] === "register") {
 
+    allMemberInfo()
 
     const registerBtn = document.querySelector(".registerBtn");
     const form = document.querySelector("form");
@@ -81,6 +81,7 @@ if (body.classList[4] === "register") {
             }
         }
 
+
         // 確認checkbox是否已打勾
         let readRuleCheck = readRule.checked;
 
@@ -95,48 +96,69 @@ if (body.classList[4] === "register") {
             Object.keys(result).forEach(keys => {
                 document.querySelector(`[data-message="${keys}"]`).textContent = result[keys];
             })
-          // checkbox 若未打勾，必須打勾。
-        } else if (readRuleCheck === false) {
+
+        }
+        // 檢查用戶名稱 與 手機號碼 是否與其他使用者重複
+        if (checkMemberInfo(nameCheck = checkInfo.findIndex(i => userName === i.userName)) !== -1 ||
+            checkMemberInfo(telCheck = checkInfo.findIndex(i => tel === tel)) !== -1 ||
+            checkMemberInfo(mailCheck = checkInfo.findIndex(i => mail === i.email)) !== -1) {
+
+            let nameCheck = checkInfo.findIndex(i => userName === i.userName)
+            let telCheck = checkInfo.findIndex(i => tel === i.tel)
+            let mailCheck = checkInfo.findIndex(i => mail === i.email)
+
+            if (nameCheck !== -1) {
+                console.log(document.querySelector(`[data-message="名稱"]`).textContent = "名稱與其他用戶重複，請重新輸入")
+                document.querySelector(`[data-message="名稱"]`).textContent = "名稱與其他用戶重複，請重新輸入";
+            }
+            if (telCheck !== -1) {
+                document.querySelector(`[data-message="手機號碼"]`).textContent = "手機號碼與其他用戶重複，請重新輸入";
+            }
+            if (mailCheck !== -1) {
+                document.querySelector(`[data-message="email"]`).textContent = "mail與其他用戶重複，請重新輸入";
+            }
+        }   // checkbox 若未打勾，必須打勾。
+        else if (readRuleCheck === false) {
             document.querySelector(`[data-message="會員守則"]`).textContent = "請確認已勾選同意會員守則";
 
-          // 若驗證OK  寫入資料 
+            // 若驗證OK  寫入資料 
         } else if (result === undefined && readRuleCheck === true) {
 
-        axios.post(`http${secure}://${api_domain}/signup`, {
-            "userName": userName,
-            "tel": tel,
-            "email": mail,
-            "password": password,
-            "checkPASD": password
-        }).then(function (response) {
+            axios.post(`http${secure}://${api_domain}/signup`, {
+                "userName": userName,
+                "tel": tel,
+                "email": mail,
+                "password": password,
+                "checkPASD": password
+            }).then(function (response) {
 
-            console.log(response)
-            Swal.fire({
-                title: '恭喜你註冊成功了✧*｡٩(ˊᗜˋ*)و✧*｡ <br /> 接著...',
-                showCancelButton: true,
-                confirmButtonText: '<a href="./login.html" class="btn btn-outline-dark fs--7 font-Montserrat">來去登入</a>',
-                cancelButtonText: `<span class="btn btn-outline-dark fs--7 font-Montserrat">我再逛逛</span>`,
-                scrollbarPadding: false,
-                heightAuto: false,
-              })
-              form.reset();
-        })
-        //  如果出現錯誤 即是email已註冊過，或出現非預期錯誤。
-        .catch(function (error) {
-            console.log(error)
-            if(error.response.data === "Email already exists"){
+                console.log(response)
                 Swal.fire({
-                    title: '此email已註冊 <br/>請登入會員或重新註冊',
-                    confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
-                  })
-            }else{
-                Swal.fire({
-                    title: '出現非預期的錯誤，請稍後再嘗試',
-                    showConfirmButton: true,
-                    confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
-                  })
-            }
-        })
+                    title: '恭喜你註冊成功了✧*｡٩(ˊᗜˋ*)و✧*｡ <br /> 接著...',
+                    showCancelButton: true,
+                    confirmButtonText: '<a href="./login.html" class="btn btn-outline-dark fs--7 font-Montserrat">來去登入</a>',
+                    cancelButtonText: `<span class="btn btn-outline-dark fs--7 font-Montserrat">我再逛逛</span>`,
+                    scrollbarPadding: false,
+                    heightAuto: false,
+                })
+                form.reset();
+            })
+                //  如果出現錯誤 即是email已註冊過，或出現非預期錯誤。
+                .catch(function (error) {
+                    console.log(error)
+                    if (error.response.data === "Email already exists") {
+                        Swal.fire({
+                            title: '此email已註冊 <br/>請登入會員或重新註冊',
+                            confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
+                        })
+                    } else {
+                        Swal.fire({
+                            title: '出現非預期的錯誤，請稍後再嘗試',
+                            showConfirmButton: true,
+                            confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
+                        })
+                    }
+                })
         }
     })
 

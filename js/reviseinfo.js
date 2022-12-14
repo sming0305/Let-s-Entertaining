@@ -1,7 +1,5 @@
 if (body.classList[4] === "reviseinfo") {
 
-    let userInfo = {};
-    let mailCheck = {}
 
     const reviseinfoBtn = document.querySelector(".reviseinfoBtn");
     const cancelBtn = document.querySelector(".cancelBtn");
@@ -15,10 +13,22 @@ if (body.classList[4] === "reviseinfo") {
 
 
     getUserInfo()
-
+    allMemberInfo()
 
 
     reviseinfoBtn.addEventListener("click", e => {
+
+        console.log(checkInfo)
+        console.log(userInfo)
+
+        let userName = document.querySelector(".changeName").value;
+        let tel = document.querySelector(".changeTel").value;
+        let mail = document.querySelector(".changeEmai").value;
+        let password = document.querySelector(".newPassword").value;
+        let oldPassword = document.querySelector(".oldPassword").value;
+        let checkPassword = document.querySelector(".checkPassword").value;
+
+        alertTab.forEach(i => { i.textContent = "" });
 
         if (changeName.value === userInfo.userName && changeTel.value === userInfo.tel && changeEmai.value === userInfo.email && newPassword.value === "") {
             Swal.fire({
@@ -31,15 +41,6 @@ if (body.classList[4] === "reviseinfo") {
                 heightAuto: false,
             })
         } else {
-            let userName = document.querySelector(".changeName").value;
-            let tel = document.querySelector(".changeTel").value;
-            let mail = document.querySelector(".changeEmai").value;
-            let password = document.querySelector(".newPassword").value;
-            let oldPassword = document.querySelector(".oldPassword").value;
-
-
-            alertTab.forEach(i => { i.textContent = "" });
-
             // constraint >>  使用validate驗證前  建立的驗證條件
             let constraint = {
                 變更名稱: {
@@ -91,8 +92,7 @@ if (body.classList[4] === "reviseinfo") {
                     equality: {
                         attribute: "新密碼",
                         message: "與新密碼不同，請重新輸入"
-                    },
-                    length: {
+                    }, length: {
                         minimum: 8,
                         message: "至少8字元組合"
                     },
@@ -109,13 +109,11 @@ if (body.classList[4] === "reviseinfo") {
 
             if (PASDCheck) {
                 document.querySelector(`[data-message="舊密碼"]`).textContent = "舊密碼輸入錯誤，請重新輸入";
-                // 若驗證OK  寫入資料 
             }
 
             // 使用 validate 驗證表單，validate回傳物件 每個屬性下有一個陣列值
             let result = validate(form, constraint);
 
-            console.log(result)
             //在判斷式中，任何物件只要不是 undefined 或 null ，儘管是值為false 的 Boolean 物件，都會被轉換成true。舉例來說，下列的 if 判斷式中的布林值即為true。
             if (result) {
 
@@ -123,15 +121,36 @@ if (body.classList[4] === "reviseinfo") {
                 Object.keys(result).forEach(keys => {
                     document.querySelector(`[data-message="${keys}"]`).textContent = result[keys];
                 })
-                // 確認舊密碼是否正確
+            } 
+            // 如果用戶更新了密碼但未填入2次驗證，提醒填入
+            else if (password !== "" && checkPassword === "") {
+                document.querySelector(`[data-message="再次輸入的密碼"]`).textContent = "請再次輸入密碼";
+            }
+            // 檢查客戶變更的 名稱 電話 mail 與其他使用者是否重複，如是則提醒。
+            else if (checkMemberInfo(nameCheck = checkInfo.findIndex(i => userName === i.userName)) !== -1 ||
+                checkMemberInfo(telCheck = checkInfo.findIndex(i => tel === i.tel)) !== -1 ||
+                checkMemberInfo(mailCheck = checkInfo.findIndex(i => mail === i.email)) !== -1) {
+
+                let nameCheck = checkInfo.findIndex(i => userName === i.userName)
+                let telCheck = checkInfo.findIndex(i => tel === i.tel)
+                let mailCheck = checkInfo.findIndex(i => mail === i.email)
+
+                if (nameCheck !== -1) {
+                    document.querySelector(`[data-message="變更名稱"]`).textContent = "變更的名稱與其他用戶重複，請重新輸入";
+                }
+                if (telCheck !== -1) {
+                    document.querySelector(`[data-message="變更號碼"]`).textContent = "變更號碼與其他用戶重複，請重新輸入";
+                }
+                if (mailCheck !== -1) {
+                    document.querySelector(`[data-message="變更mail"]`).textContent = "變更mail與其他用戶重複，請重新輸入";
+                }
+
             }
             // 若驗證OK  寫入資料 
-            else if (emailCheck() !== -1) {
-                document.querySelector(`[data-message="變更mail"]`).textContent = "變更mail與其他用戶重複，請重新輸入";
-            } else if (result === undefined && PASDCheck === false) {
+            else if (result === undefined && PASDCheck === false) {
 
                 // 如果使用者沒有變更密碼，僅變更別的項目
-                if (oldPassword === "") {
+                if (password === "") {
                     axios.patch(`http${secure}://${api_domain}/users/${localStorage.getItem("userId")}`, {
                         "userName": userName,
                         "tel": tel,
@@ -149,23 +168,17 @@ if (body.classList[4] === "reviseinfo") {
                         })
                         getUserInfo()
                     })
-                        //  如果出現錯誤 即是email已註冊過，或出現非預期錯誤。
                         .catch(function (error) {
                             console.log(error)
-                            if (error.response.data === "Email already exists") {
-                                Swal.fire({
-                                    title: '此email已註冊 <br/>請更改為其他的email',
-                                    confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
-                                })
-                            } else {
-                                Swal.fire({
-                                    title: '出現非預期的錯誤，請稍後再嘗試',
-                                    showConfirmButton: true,
-                                    confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
-                                })
-                            }
+
+                            Swal.fire({
+                                title: '出現非預期的錯誤，請稍後再嘗試',
+                                showConfirmButton: true,
+                                confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
+                            })
+
                         })
-                } else if (oldPassword !== "") {
+                } else if (password !== "") {
                     axios.patch(`http${secure}://${api_domain}/users/${localStorage.getItem("userId")}`, {
                         "userName": userName,
                         "tel": tel,
@@ -183,21 +196,16 @@ if (body.classList[4] === "reviseinfo") {
                         })
                         getUserInfo()
                     })
-                        //  如果出現錯誤 即是email已註冊過，或出現非預期錯誤。
+                        //  如果出現錯誤 即是出現非預期錯誤。
                         .catch(function (error) {
                             console.log(error)
-                            if (error.response.data === "Email already exists") {
-                                Swal.fire({
-                                    title: '此email已註冊 <br/>請更改為其他的email',
-                                    confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
-                                })
-                            } else {
-                                Swal.fire({
-                                    title: '出現非預期的錯誤，請稍後再嘗試',
-                                    showConfirmButton: true,
-                                    confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
-                                })
-                            }
+
+                            Swal.fire({
+                                title: '出現非預期的錯誤，請稍後再嘗試',
+                                showConfirmButton: true,
+                                confirmButtonText: '<a href="#" class="btn btn-outline-dark fs--6 font-Montserrat">確認</a>'
+                            })
+
                         })
                 }
             }
@@ -221,12 +229,15 @@ if (body.classList[4] === "reviseinfo") {
 }
 
 
+
+
 // 取得會員資料
 function getUserInfo() {
 
     axios.get(`http${secure}://${api_domain}/${Guarded_routes}users/${localStorage.getItem("userId")}`, headers)
         .then(response => {
             userInfo = response.data
+
             renderMemberInfo()
 
         }).catch(error => {
@@ -234,21 +245,12 @@ function getUserInfo() {
         })
 }
 
-// 確認會員的email修改後是否跟他人重複
-function emailCheck() {
-    axios.get(`http${secure}://${api_domain}/users`)
-        .then(response => {
-            mailCheck = response.data
-            console.log(mailCheck)
 
-            let result = mailCheck.findIndex(i => i.email === mail)
-
-            return result
-
-        }).catch(error => {
-            console.log(error)
-        })
+// 確認會員資料是否與他人重複 (不能把自己算進去)
+function checkMemberInfo(result) {
+    return result
 }
+
 
 // 渲染會員資料
 function renderMemberInfo() {

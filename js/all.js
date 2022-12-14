@@ -24,9 +24,6 @@ const member_btn = document.querySelectorAll(".member-btn");
 
 
 
-
-console.log("PUSH前記得更改secure & domain路徑")
-
 // 切換secure
 let secure = "s";
 // Json-Server網址domain路徑
@@ -52,6 +49,11 @@ let day = new Date()
 let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}/${String(day.getDate()).padStart(2, '0')}`
 // 展演結束日期gap暫存處;
 let gap = ``;
+
+// 修改會員資料，暫存
+let userInfo = {};
+// 驗證會員修改資料是否重複，暫存
+let checkInfo = [];
 
 // 初始化
 Init();
@@ -226,7 +228,10 @@ function favoriteShowExist() {
       if (tokenOverTime === "Unauthorized") {
         overtime();
       } else if (tokenOverTime === "Forbidden") {
-        // 在收藏清單為0筆的狀況下做get檢查會進到這個錯誤，代表0筆，將直接進行收藏。
+        // 當使用 localhost 或 vercel 刪除至0筆時 在收藏清單為0筆的狀況下做get檢查會進到這個錯誤，代表0筆，將直接進行收藏。
+        addFavorite()
+      } // 當使用 render 刪除至0筆時做get檢查會進到這個錯誤，代表0筆，將直接進行收藏。
+      else if (error.response.request.status === 403) {
         addFavorite()
       }
       else {
@@ -387,6 +392,20 @@ function overtime() {
 
   setTimeout("location.href='./login.html'", 3000);
 
+}
+
+// 取得所有會員資料，用以驗證名稱.手機號碼.電子信箱是否重複 (在修改會員資料列，，會篩選除掉該會員本身資料，用以驗證比對其他人)
+function allMemberInfo() {
+  axios.get(`http${secure}://${api_domain}/users`)
+      .then(response => {
+          checkInfo = response.data.filter(i => {
+              if (i.id !== parseInt(localStorage.getItem("userId"))) {
+                  return i
+              }
+          })
+      }).catch(error => {
+          console.log(error)
+      })
 }
 
 //初始化function

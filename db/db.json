@@ -202,7 +202,7 @@
     },
     {
       "email": "YI666@gmail.com",
-      "password": "$2a$10$wAAytO41ZUXsImSJF6kPrOx856sGqHCDFSYvuQDyqHWOu2CWw265G",
+      "password": "$2a$10$OgzdeF/ZmJiOCKmzKDsSMueUfxnsSTIcvyPXAKbw68paQXNgZ8rRe",
       "userName": "YI",
       "tel": "0966666666",
       "checkPASD": "12345666",
@@ -212,23 +212,8 @@
   "showFavoriteList": [
     {
       "userId": "1",
-      "showId": "8",
-      "id": 18
-    },
-    {
-      "userId": "1",
-      "showId": "3",
-      "id": 21
-    },
-    {
-      "userId": "1",
       "showId": "1",
-      "id": 22
-    },
-    {
-      "userId": "1",
-      "showId": "5",
-      "id": 23
+      "id": 1
     }
   ]
 }
