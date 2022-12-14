@@ -86,6 +86,7 @@ if (body.classList[4] === "register") {
         let readRuleCheck = readRule.checked;
 
 
+
         // 使用 validate 驗證表單，validate回傳物件 每個屬性下有一個陣列值
         let result = validate(form, constraint);
 
@@ -96,11 +97,10 @@ if (body.classList[4] === "register") {
             Object.keys(result).forEach(keys => {
                 document.querySelector(`[data-message="${keys}"]`).textContent = result[keys];
             })
-
         }
         // 檢查用戶名稱 與 手機號碼 是否與其他使用者重複
         if (checkMemberInfo(nameCheck = checkInfo.findIndex(i => userName === i.userName)) !== -1 ||
-            checkMemberInfo(telCheck = checkInfo.findIndex(i => tel === tel)) !== -1 ||
+            checkMemberInfo(telCheck = checkInfo.findIndex(i => tel === i.tel)) !== -1 ||
             checkMemberInfo(mailCheck = checkInfo.findIndex(i => mail === i.email)) !== -1) {
 
             let nameCheck = checkInfo.findIndex(i => userName === i.userName)
@@ -108,7 +108,6 @@ if (body.classList[4] === "register") {
             let mailCheck = checkInfo.findIndex(i => mail === i.email)
 
             if (nameCheck !== -1) {
-                console.log(document.querySelector(`[data-message="名稱"]`).textContent = "名稱與其他用戶重複，請重新輸入")
                 document.querySelector(`[data-message="名稱"]`).textContent = "名稱與其他用戶重複，請重新輸入";
             }
             if (telCheck !== -1) {
@@ -117,10 +116,9 @@ if (body.classList[4] === "register") {
             if (mailCheck !== -1) {
                 document.querySelector(`[data-message="email"]`).textContent = "mail與其他用戶重複，請重新輸入";
             }
-        }   // checkbox 若未打勾，必須打勾。
+        } // 必須勾選同意
         else if (readRuleCheck === false) {
             document.querySelector(`[data-message="會員守則"]`).textContent = "請確認已勾選同意會員守則";
-
             // 若驗證OK  寫入資料 
         } else if (result === undefined && readRuleCheck === true) {
 

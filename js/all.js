@@ -397,15 +397,16 @@ function overtime() {
 // 取得所有會員資料，用以驗證名稱.手機號碼.電子信箱是否重複 (在修改會員資料列，，會篩選除掉該會員本身資料，用以驗證比對其他人)
 function allMemberInfo() {
   axios.get(`http${secure}://${api_domain}/users`)
-      .then(response => {
-          checkInfo = response.data.filter(i => {
-              if (i.id !== parseInt(localStorage.getItem("userId"))) {
-                  return i
-              }
-          })
-      }).catch(error => {
-          console.log(error)
+    .then(response => {
+      checkInfo = response.data.filter(i => {
+        if (i.id !== parseInt(localStorage.getItem("userId"))) {
+          return i
+        }
+        console.log(checkInfo)
       })
+    }).catch(error => {
+      console.log(error)
+    })
 }
 
 //初始化function

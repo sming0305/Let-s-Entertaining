@@ -10,13 +10,14 @@
 - 首頁展演列表--API串接渲染
 - 單一展覽詳細介紹--API串接渲染
 - 展演列表頁--API串接渲染
-- 會員註冊功能POST (JSON-server-auth signup)
-- 會員登入功能POST (JSON-server-auth login)
-- 展演活動加入收藏清單POST & DELETE (JSON-server-auth /600/ 需Token) 
-- 會員專區首頁API串接渲染，活動倒數天數提示 (JSON-server-auth /600/ 需Token)
-- 會員專區列出收藏活動清單--API串接渲染 (JSON-server-auth /600/ 需Token)
+- 會員註冊功能POST
+- 會員登入功能POST
+- 展演活動加入收藏清單POST & DELETE
+- 會員專區首頁API串接渲染，活動倒數天數提示
+- 會員專區列出收藏活動清單--API串接渲染
+- 展演活動加入收藏清單 & 從收藏清單刪除
 - 展演收藏閘篩選功能
-- 展演詳細介紹收藏按鈕功能
+- 展演詳細介紹內收藏按鈕功能
 - 會員資料修改--API串接
 - 展演列表頁篩選功能
 
