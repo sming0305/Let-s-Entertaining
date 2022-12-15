@@ -21,8 +21,13 @@ const member_date = document.querySelector(".member-date");
 const member_showList = document.querySelector(".member_showList");
 const logout_btn = document.querySelectorAll(".logout-btn");
 const member_btn = document.querySelectorAll(".member-btn");
+const showassistantLocation = document.querySelector(".showassistantLocation");
+const showassistantDate = document.querySelector(".showassistantDate");
+const showassistant_Inquire = document.querySelector(".showassistant-Inquire");
+const showassistant_result = document.querySelector(".showassistant-resultShowInfo");
 
 
+//  網路請求相關-------------------------------------------------------------------
 
 // 切換secure
 let secure = "s";
@@ -37,6 +42,7 @@ let headers = {
   }
 }
 
+// 活動資料暫存-------------------------------------------------------------------
 
 // 判斷使用者當前點擊到欲收藏的活動Id---儲存位置
 let showId = ``;
@@ -50,16 +56,35 @@ let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}
 // 展演結束日期gap暫存處;
 let gap = ``;
 
+
+// 看展小幫手查詢資-------------------------------------------------------------------
+
+// 看展小幫手查詢展覽地標 > for google map
+let coordinate = { lat: 0, lng: 0}
+// 看展小幫手查詢展覽日期 > for select 初始設定 & 後續設定傳值
+let maxDate = today;
+// 看展小幫手查詢展覽休館日 > for select
+let datesDisabled = [];
+// 看展小幫手查詢展覽週間 > for select
+let daysOfWeekDisabled = [];
+// 看展小幫手查詢展覽 > Id for render
+let showassistant_showId = ``;
+
+
+// 會員資料相關-------------------------------------------------------------------
+
 // 修改會員資料，暫存
 let userInfo = {};
 // 驗證會員修改資料是否重複，暫存
 let checkInfo = [];
 
+
+
+
 // 初始化
 Init();
 
 let data = [];
-
 
 
 
@@ -168,7 +193,6 @@ function renderShowList(dataBase) {
   }
 
 }
-
 
 // 收藏活動前，判斷使用者是否已加入會員 & 收藏活動
 function memberOrNot() {
@@ -416,29 +440,6 @@ function Init() {
   getShowList()
   userLoginInfo()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

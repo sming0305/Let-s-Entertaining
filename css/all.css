@@ -21146,6 +21146,56 @@ input:-webkit-autofill:focus {
   padding-right: 0px !important;
 }
 
+.datepicker.active {
+  display: block;
+  max-width: 76% !important;
+}
+@media (min-width: 300px) {
+  .datepicker.active {
+    max-width: 80% !important;
+  }
+}
+@media (min-width: 390px) {
+  .datepicker.active {
+    max-width: 86% !important;
+  }
+}
+@media (min-width: 576px) {
+  .datepicker.active {
+    width: 452px !important;
+  }
+}
+@media (min-width: 768px) {
+  .datepicker.active {
+    width: 632px !important;
+  }
+}
+@media (min-width: 992px) {
+  .datepicker.active {
+    width: 232px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .datepicker.active {
+    width: 290px !important;
+  }
+}
+@media (min-width: 1440px) {
+  .datepicker.active {
+    width: 349px !important;
+  }
+}
+
+.datepicker-picker {
+  width: 100% !important;
+}
+
+.datepicker-view,
+.days,
+.datepicker-grid {
+  width: 100% !important;
+}
+
 .offcanvas {
   top: 76px !important;
 }

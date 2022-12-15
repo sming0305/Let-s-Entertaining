@@ -1,0 +1,46 @@
+
+.datepicker.active {
+    display: block;
+
+    max-width: 76% !important;
+
+    @media (min-width:300px) {
+        max-width: 80% !important;
+    }
+
+    @media (min-width:390px) {
+        max-width: 86% !important;
+    }
+
+    @include sm{
+        width: 452px !important;
+    }
+
+    @include md{
+        width: 632px !important;
+    }
+
+    @include lg{
+        width: 232px !important;
+    }
+
+    @include xl{
+        width: 290px !important;
+    }
+
+    @include xxl {
+        width: 349px !important;
+    }
+
+
+}
+
+.datepicker-picker {
+    width: 100% !important;
+}
+
+.datepicker-view,
+.days,
+.datepicker-grid {
+    width: 100% !important;
+}
