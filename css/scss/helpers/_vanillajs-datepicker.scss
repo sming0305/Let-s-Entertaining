@@ -1,5 +1,5 @@
 
-.datepicker.active {
+.showassistant .datepicker.active {
     display: block;
 
     max-width: 76% !important;
@@ -35,12 +35,12 @@
 
 }
 
-.datepicker-picker {
+.showassistant .datepicker-picker {
     width: 100% !important;
 }
 
-.datepicker-view,
-.days,
-.datepicker-grid {
+.showassistant .datepicker-view,
+.showassistant .days,
+.showassistant .datepicker-grid {
     width: 100% !important;
 }

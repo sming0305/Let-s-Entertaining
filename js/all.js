@@ -25,6 +25,17 @@ const showassistantLocation = document.querySelector(".showassistantLocation");
 const showassistantDate = document.querySelector(".showassistantDate");
 const showassistant_Inquire = document.querySelector(".showassistant-Inquire");
 const showassistant_result = document.querySelector(".showassistant-resultShowInfo");
+const weatherBox = document.querySelector(".weatherBox");
+const member_location_select = document.querySelector(".member-location-select");
+const member_show_select = document.querySelector(".member-show-select");
+const member_date_select = document.querySelector(".member-date-select");
+const member_showassistant_Inquire = document.querySelector(".member-showassistant-Inquire");
+const memberPage_showassistant_info = document.querySelector(".memberPage-showassistant-info");
+const member_weatherBox = document.querySelector(".member-weatherBox");
+const member_map = document.querySelector(".member-map");
+
+
+
 
 
 //  網路請求相關-------------------------------------------------------------------
@@ -57,10 +68,11 @@ let today = `${day.getFullYear()}/${String(day.getMonth() + 1).padStart(2, '0')}
 let gap = ``;
 
 
+
 // 看展小幫手查詢資-------------------------------------------------------------------
 
 // 看展小幫手查詢展覽地標 > for google map
-let coordinate = { lat: 0, lng: 0}
+let coordinate = { lat: 25.043320296187062, lng: 121.56015915286291} //25.043320296187062, 121.56015915286291
 // 看展小幫手查詢展覽日期 > for select 初始設定 & 後續設定傳值
 let maxDate = today;
 // 看展小幫手查詢展覽休館日 > for select
@@ -69,6 +81,23 @@ let datesDisabled = [];
 let daysOfWeekDisabled = [];
 // 看展小幫手查詢展覽 > Id for render
 let showassistant_showId = ``;
+
+
+// 看展小幫手 使用者選定日期
+let chooseDate = ``;
+// 看展小幫手 Call weatherDayLimit;
+let weatherDayLimit = ``;
+// 看展小幫手 Call weather日期;
+let startTime = ``;
+// 看展小幫手 天氣地區;
+let locationAreaName = ``;
+// 看展小幫手 降雨機率;
+let locationWeatherPoP = ``;
+// 看展小幫手 平均溫度;
+let locationWeatherT = ``;
+
+// 看展小幫手 會員頁 correct  展覽
+let correct = [];
 
 
 // 會員資料相關-------------------------------------------------------------------
