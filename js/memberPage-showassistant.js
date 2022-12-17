@@ -13,10 +13,7 @@ if (body.classList[4] === "memberPage-showassistant") {
         daysOfWeekDisabled: [] // 設定每週固定不可選的日期，陣列內每筆資料數字號碼，0為星期日 1為禮拜1，依此類推，用來設定固定休館日
     });
 
-
-
-
-
+    
     // 負責判斷使用者點選到哪種類型展覽，並做相應渲染處理
     member_location_select.addEventListener("change", e => {
         let target = e.target.value;
@@ -96,7 +93,7 @@ if (body.classList[4] === "memberPage-showassistant") {
                     })
                     member_date_select.setAttribute("value", "");
                     member_date_select.value = "";
-            
+
                 }
             }
         } else {
@@ -225,7 +222,7 @@ if (body.classList[4] === "memberPage-showassistant") {
                 coordinate.lat = correct[0].show.lat;
                 coordinate.lng = correct[0].show.lng;
 
-                
+
 
 
                 if (weatherDayLimit <= 7) {
@@ -256,16 +253,17 @@ if (body.classList[4] === "memberPage-showassistant") {
     // 按照查詢結果送出所獲取的經緯度資訊，渲染本頁Google地圖
     // Initialize and add the map
     function initMap() {
-        // The location of Uluru
-        const mapLocation = coordinate;
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("member-map"), {
+
+        // const mapLocation = coordinate;
+
+        // The map
+        let map = new google.maps.Map(document.getElementById("member-map"), {
             zoom: 15,
-            center: mapLocation,
+            center: { lat: coordinate.lat, lng: coordinate.lng },
         });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-            position: mapLocation,
+        // The marker
+        let marker = new google.maps.Marker({
+            position: { lat: coordinate.lat, lng: coordinate.lng },
             map: map,
         });
     }
@@ -392,7 +390,6 @@ function renderShowAssistantSelect_favorite(target) {
     target.innerHTML = str;
 }
 
-
 // 天氣預報資訊get
 function weather() {
 
@@ -412,7 +409,6 @@ function weather() {
         axios.get(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-063?Authorization=CWB-976EAD4A-554A-4DFE-9AB2-675A11E36DC8&locationName=${locationNameCode}&elementName=&startTime=${startTime}T18%3A00%3A00`)
             .then(response => {
 
-                console.log(response)
 
                 locationAreaName = response.data.records.locations[0].location[0].locationName
                 locationWeatherPoP = response.data.records.locations[0].location[0].weatherElement[0].time[0].elementValue[0].value
@@ -440,12 +436,10 @@ function weather() {
                 console.log(error);
             })
     } else {
-       
+
         axios.get(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-063?Authorization=CWB-976EAD4A-554A-4DFE-9AB2-675A11E36DC8&locationName=${locationNameCode}&elementName=&startTime=${startTime}T06%3A00%3A00`)
             .then(response => {
 
-
-        
 
                 locationAreaName = response.data.records.locations[0].location[0].locationName
                 locationWeatherPoP = response.data.records.locations[0].location[0].weatherElement[0].time[0].elementValue[0].value
@@ -454,7 +448,6 @@ function weather() {
 
                 if (locationWeatherPoP === " ") {
                     locationWeatherPoP = 0
-                    console.log("我有執行")
                 } else if (locationWeatherPoP === "0") {
                     locationWeatherPoP = 0
                 }
@@ -479,6 +472,22 @@ function weather() {
     }
 
 
+}
+
+// 不刷新頁面下重新刷新地圖資訊
+function updateMap(latitude, longitude) {
+
+
+    // The map
+    let map = new google.maps.Map(document.getElementById("member-map"), {
+        zoom: 15,
+        center: { lat: latitude, lng: longitude },
+    });
+    // The marker
+    let marker = new google.maps.Marker({
+        position: { lat: latitude, lng: longitude },
+        map: map,
+    });
 }
 
 // 渲染查詢結果
@@ -690,6 +699,12 @@ function member_renderShowAssistant_resultShowInfo(location, weatherArea) {
     member_date_select.value = "";
     member_map.classList.remove("d-none")
 
-    console.log(coordinate)
+    // 取得使用者新查詢的地圖座標
+    let latitude = coordinate.lat
+    let longitude = coordinate.lng
+
+    // 刷新地圖座標
+    updateMap(latitude, longitude);
+
 }
 
