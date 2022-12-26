@@ -85,11 +85,14 @@ if (body.classList[4] === "memberPage-showassistant") {
                     maxDate = correct[0].show.endDate;
                     datesDisabled = correct[0].show.restDay;
                     daysOfWeekDisabled = correct[0].show.restDayOfWeek;
+                    minDate = correct[0].show.startDate;
 
+                    console.log(minDate)
                     datepicker.setOptions({
                         maxDate: maxDate,
                         datesDisabled: datesDisabled,
                         daysOfWeekDisabled: daysOfWeekDisabled,
+                        minDate : minDate
                     })
                     member_date_select.setAttribute("value", "");
                     member_date_select.value = "";
@@ -132,11 +135,13 @@ if (body.classList[4] === "memberPage-showassistant") {
                     maxDate = correct[0].endDate;
                     datesDisabled = correct[0].restDay;
                     daysOfWeekDisabled = correct[0].restDayOfWeek;
+                    minDate = correct[0].startDate;
 
                     datepicker.setOptions({
                         maxDate: maxDate,
                         datesDisabled: datesDisabled,
                         daysOfWeekDisabled: daysOfWeekDisabled,
+                        minDate : minDate
                     })
 
                     member_date_select.setAttribute("value", "");
