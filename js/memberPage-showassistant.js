@@ -421,7 +421,7 @@ function weather() {
                 locationWeatherPoPIcon = ``;
 
                 if (locationWeatherPoP === " ") {
-                    locationWeatherPoP = 0
+                    locationWeatherPoP = 100
                 }
                 if (locationWeatherPoP === 0) {
                     locationWeatherPoPIcon = "./images/sunny.png";
@@ -452,7 +452,7 @@ function weather() {
                 locationWeatherPoPIcon = ``;
 
                 if (locationWeatherPoP === " ") {
-                    locationWeatherPoP = 0
+                    locationWeatherPoP = 100
                 } else if (locationWeatherPoP === "0") {
                     locationWeatherPoP = 0
                 }

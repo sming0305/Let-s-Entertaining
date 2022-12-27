@@ -134,7 +134,7 @@ function weather() {
 
 
                 if (locationWeatherPoP === " ") {
-                    locationWeatherPoP = 0
+                    locationWeatherPoP = 100
                     console.log("我有執行")
                 } else if (locationWeatherPoP === "0") {
                     locationWeatherPoP = 0
