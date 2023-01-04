@@ -94,7 +94,7 @@ function weather() {
         axios.get(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-063?Authorization=CWB-976EAD4A-554A-4DFE-9AB2-675A11E36DC8&locationName=${locationNameCode}&elementName=&startTime=${startTime}T18%3A00%3A00`)
             .then(response => {
 
-        
+
 
                 locationAreaName = response.data.records.locations[0].location[0].locationName
                 locationWeatherPoP = response.data.records.locations[0].location[0].weatherElement[0].time[0].elementValue[0].value
@@ -104,7 +104,11 @@ function weather() {
 
                 if (locationWeatherPoP === " ") {
                     locationWeatherPoP = 0
+                } else if (locationWeatherPoP === "0") {
+                    locationWeatherPoP = 0
                 }
+
+
                 if (locationWeatherPoP === 0) {
                     locationWeatherPoPIcon = "./images/sunny.png";
                 } else if (locationWeatherPoP > 0 && locationWeatherPoP <= 30) {
@@ -134,8 +138,8 @@ function weather() {
 
 
                 if (locationWeatherPoP === " ") {
-                    locationWeatherPoP = 100
-                    console.log("我有執行")
+                    locationWeatherPoP = 0
+
                 } else if (locationWeatherPoP === "0") {
                     locationWeatherPoP = 0
                 }

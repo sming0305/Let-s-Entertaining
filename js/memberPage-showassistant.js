@@ -13,7 +13,7 @@ if (body.classList[4] === "memberPage-showassistant") {
         daysOfWeekDisabled: [] // 設定每週固定不可選的日期，陣列內每筆資料數字號碼，0為星期日 1為禮拜1，依此類推，用來設定固定休館日
     });
 
-    
+
     // 負責判斷使用者點選到哪種類型展覽，並做相應渲染處理
     member_location_select.addEventListener("change", e => {
         let target = e.target.value;
@@ -92,7 +92,7 @@ if (body.classList[4] === "memberPage-showassistant") {
                         maxDate: maxDate,
                         datesDisabled: datesDisabled,
                         daysOfWeekDisabled: daysOfWeekDisabled,
-                        minDate : minDate
+                        minDate: minDate
                     })
                     member_date_select.setAttribute("value", "");
                     member_date_select.value = "";
@@ -141,7 +141,7 @@ if (body.classList[4] === "memberPage-showassistant") {
                         maxDate: maxDate,
                         datesDisabled: datesDisabled,
                         daysOfWeekDisabled: daysOfWeekDisabled,
-                        minDate : minDate
+                        minDate: minDate
                     })
 
                     member_date_select.setAttribute("value", "");
@@ -421,8 +421,12 @@ function weather() {
                 locationWeatherPoPIcon = ``;
 
                 if (locationWeatherPoP === " ") {
-                    locationWeatherPoP = 100
+                    locationWeatherPoP = 0
+                } else if (locationWeatherPoP === "0") {
+                    locationWeatherPoP = 0
                 }
+
+                
                 if (locationWeatherPoP === 0) {
                     locationWeatherPoPIcon = "./images/sunny.png";
                 } else if (locationWeatherPoP > 0 && locationWeatherPoP <= 30) {
@@ -452,7 +456,7 @@ function weather() {
                 locationWeatherPoPIcon = ``;
 
                 if (locationWeatherPoP === " ") {
-                    locationWeatherPoP = 100
+                    locationWeatherPoP = 0
                 } else if (locationWeatherPoP === "0") {
                     locationWeatherPoP = 0
                 }
