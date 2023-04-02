@@ -217,6 +217,28 @@
         "2023/01/21"
       ],
       "restDayOfWeek": []
+    },
+    {
+      "id": 11,
+      "showUID": "60c80c39axs33e89fe9fadx1",
+      "title": "《藍色の戀－松菸印象．風華再現》",
+      "startDate": "2023/04/01",
+      "endDate": "2023/06/12",
+      "startTime": "08:00",
+      "endTime": "22:00",
+      "price": "免費參觀",
+      "ticketUrl": "",
+      "location": "松山文創園區製菸工廠 1F + 2F",
+      "locationName": "松山文創園區",
+      "imgUrl": "https://www.songshanculturalpark.org/gallery/1680231506_48fbae99b32e5fb66e8b.jpg",
+      "introduce": "常來松菸的你/妳 知道這是什麼植物嗎？本次松菸與光復國小攜手合作，於松菸內的消防栓箱展出，將小朋友拍攝的照片以藍曬的方式製作出明信片，夠過小朋友的視角呈現松菸特有植物的美，另外在探尋植物的過程中還有集張活動可以參與可別錯過這次這次的展覽喔～",
+      "description": "<article class='big_article'>常來松菸的你/妳 知道這是什麼植物嗎？本次松菸與光復國小攜手合作，於松菸內的消防栓箱展出，將小朋友拍攝的照片以藍曬的方式製作出明信片，夠過小朋友的視角呈現松菸特有植物的美，另外在探尋植物的過程中還有集張活動可以參與可別錯過這次這次的展覽喔～</article><section><p>展覽資訊｜</p><p>展覽地點：松山文創園區製菸工廠</p><p>展覽時間：2023/04/01-2023/06/12</p><p>集章辦法：集章卡請至松山文創園區遊客服務中心領取，並於集章完成後返回遊客服務中心兌換神秘小禮。</p><p>&nbsp;</p><p><img alt='' src='https://www.songshanculturalpark.org/gallery/20230331/1680232345_852ce128dcd23029c4af.jpg' style='width: 100%; height: 100%;' /></p><p><img alt='' src='https://www.songshanculturalpark.org/gallery/20230331/1680256368_e1287dd5d793a591886a.jpg style='width: 100%; height: 100%;' /><img alt='' src='https://www.songshanculturalpark.org/gallery/20230331/1680256388_d03c1df8283281ac9547.jpg' style='width: 100%; height: 100%;' /><img alt='' src='https://www.songshanculturalpark.org/gallery/20230331/1680256406_d36cb2321051e0646b4c.jpg' style='width: 100%; height: 100%;' /><img alt='' src='https://www.songshanculturalpark.org/gallery/20230331/1680256417_f32ed6495b3d282254f1.jpg' style='width: 100%; height: 100%;' /><img alt='' src='https://www.songshanculturalpark.org/gallery/20230331/1680256431_1b8188f61a1908ebc9e8.jpg' style='width: 100%; height: 100%;' /><img alt='' src='https://www.songshanculturalpark.org/gallery/20230331/1680256445_b2a60d05d0e9b6866df1.jpg' style='width: 100%; height: 100%;' /></p></section>",
+      "lat": 25.043655355693762,
+      "lng": 121.56066995359052,
+      "restDay": [
+        "2023/01/21"
+      ],
+      "restDayOfWeek": []
     }
   ],
   "articles": [
