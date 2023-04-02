@@ -74,13 +74,11 @@ if (body.classList[4] === "showassistant") {
         maxDate = correct[0].endDate;
         datesDisabled = correct[0].restDay;
         daysOfWeekDisabled = correct[0].restDayOfWeek;
-        // minDate = correct[0].startDate;
 
         datepicker.setOptions({
           maxDate: maxDate,
           datesDisabled: datesDisabled,
           daysOfWeekDisabled: daysOfWeekDisabled,
-        //   minDate: minDate,
         });
 
         targetDate.value = "";
