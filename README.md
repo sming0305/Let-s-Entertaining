@@ -7,7 +7,7 @@
 參訪網址請點 : [Let-s-Entertaining!](https://sming0305.github.io/Let-s-Entertaining/)
 
 
-<p>因作品需呈現多筆展覽資訊，除《藍色の戀－松菸印象．風華再現》該展結束時間為真實外，</p>
+<p>因作品需正確呈現多筆展覽資訊，除《藍色の戀－松菸印象．風華再現》該展結束時間為真實外，</p>
 <p>其餘展覽結束時間有經過調整(註:實際展出時間已結束)</p>
 <p>備註:因網路請求資料部屬在Render，若相關展演資訊未顯示，請重新整理並稍待1~2分鐘即會顯示</p>
 
@@ -43,4 +43,5 @@
 - validate.js
 - vanillajs-datepicker
 - GoogleMap API
+- 中央氣象局天氣API
 
